@@ -1,7 +1,7 @@
 CC=gcc
 CFLAGS=-Wall -Werror
 
-SRCS=sapin_aleatoire.c
+SRCS=linkedList.c
 OBJS=$(SRCS:.c=.o)
 MAIN=$(OBJS:.o=)
 

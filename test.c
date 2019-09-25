@@ -3,7 +3,8 @@
 int main()
 {
 	printf("Hello world\n");
-	int a = 6401;
+	printf("Test\n" );
+	int a = 06401;
 	printf("%x\n", a );
 	return 0;
 }

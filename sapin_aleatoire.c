@@ -19,13 +19,6 @@ int main(int argc, char const *argv[]) {
   /* afficher 5 nombres entiers aleatoires compris 0 et 49 */
 
 
-  /*cone = rand()%40 +1 ;
-  largeurTronc = rand()%5 + 1;
-  hauteurTronc = rand()%4 +1;
-
-  etageBoule = rand() % cone +1;
-  emplacementBoule = rand() % etageBoule + 1*/
-
   while(1){
 
     //Generation des carac du sapins

@@ -12,9 +12,11 @@ typedef struct tag_linkedList{
 
 
 void insertHeadNode(linkedList ** root, int newValue);
-void removeHeadNode(linkedList * root);
+int removeHeadNode(linkedList ** root);
 void printList(linkedList * list);
 int insertArbitraryNode(linkedList ** list, int newValue, int place);
+
+int removeAValue(linkedList ** list, int valueToRemove);
 
 
 
@@ -29,9 +31,11 @@ int main(int argc, char const *argv[]) {
   }
 
   insertArbitraryNode(&list, 3, 0);
-
   printList(list);
-
+  removeHeadNode(&list);
+  printList(list);
+  removeAValue(&list, 5);
+  printList(list);
   return 0;
 }
 
@@ -76,16 +80,44 @@ int insertArbitraryNode(linkedList ** list, int newValue, int place){
   return 0;
 }
 
-void removeHeadNode(linkedList * root){
-
-  linkedList * placeHolder = root;
-  root->next = root->next->next;
+int removeHeadNode(linkedList ** root){
+  int val = (*root)->value;
+  linkedList * placeHolder = *root;
+  *root= (*root)->next;
   free(placeHolder);
+  return val;
 }
 
 void printList(linkedList * list){
+
+  printf("[ ");
     while(list != NULL){
-        printf("%d\n", list->value);
+        printf("%d ", list->value);
         list = list->next;
     }
+    printf(" ]\n");
+}
+
+int removeAValue(linkedList ** list, int valueToRemove){
+  linkedList * precedent;
+  linkedList * courant;
+  int returnVal;
+
+
+  if((*list)->value == valueToRemove){
+    return removeHeadNode(list);
+  }
+
+  do {
+    precedent = courant;
+    courant = courant->next;
+  } while(courant->next != NULL && courant->value != valueToRemove);
+
+  if(courant->value == valueToRemove){
+    returnVal = courant->value;
+    precedent->next = courant->next;
+    free(courant);
+    return returnVal;
+  }
+  return 0;
 }

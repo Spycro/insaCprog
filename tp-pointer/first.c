@@ -70,6 +70,9 @@ int main(int argc, char const *argv[]) {
   int test = -1524;
   itoa(test);*/
 
+  sqrt(-1);
+  printf("%s\n", strerror(errno));
+
   double a = 5;
   double b = 0;
   printf("%lf\n", div(a,b));

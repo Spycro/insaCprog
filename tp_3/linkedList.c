@@ -12,8 +12,9 @@ void ajouterEnTete(elem ** first,int val);
 int rechercher(elem* list,int valWanted);
 void ajouter_en_queue(elem * list, int valeur);
 void supprimer(elem ** list,int valor);
-
-
+void dupliquer(elem ** list, int valed);
+int estTrie(elem* list);
+void ajouterEnPlace(elem ** list, int valad);
 
 int main(int argc, char const *argv[]) {
   elem * list;
@@ -22,11 +23,16 @@ int main(int argc, char const *argv[]) {
   list->next = NULL;
   while(1)
   {
+    printf("\n");
     printf("menu:\n");
     printf("\t1: ajouter en tete\n");
     printf("\t2: afficher la liste\n");
     printf("\t3: ntm\n");
-    printf("\t4: No\n");printf("\t5: No\n");
+    printf("\t4: Ajouter en fin\n");
+    printf("\t5: Retirer une valeur\n");
+    printf("\t6: dupliquer une valeur\n");
+    printf("\t7: verifier si la liste est triee\n");
+    printf("\t8: ajoute une val a la bonne place\n");
     printf("\t0: quitter\n");
     int choix;
     scanf("%d", &choix);
@@ -53,6 +59,21 @@ int main(int argc, char const *argv[]) {
         case 5:
           scanf("%d",&val);
           supprimer(&list,val);
+          break;
+        case 6:
+          scanf("%d", &val);
+          dupliquer(&list, val);
+          break;
+        case 7:
+          if(estTrie(list)){
+              printf("OUI\n");
+          }else{
+            printf("NEIN\n");
+          }
+          break;
+        case 8:
+          scanf("%d", &val);
+          ajouterEnPlace(&list, val);
           break;
         default:
           printf("choix incorrect\n");
@@ -138,7 +159,74 @@ void supprimer(elem ** list,int valor){
     }
 
   }
+}
+
+void dupliquer(elem ** list, int valed)
+{
+  elem * suivant = *(list);
+
+  while(suivant != NULL){
+    if (suivant->value == valed){
+      //creation d'un nouvel element
+      elem * newNode = malloc(sizeof(elem));
+      newNode->value = valed;
+      //on attache le nouvel element
+      newNode->next = suivant->next;
+      suivant->next = newNode;
+      //on avance d'une case, pour eviter de redupliquer ce nouvel element
+      suivant = suivant->next;
+    }
+    suivant = suivant->next;
+
+  }
+}
+
+int estTrie (elem* list)
+{
+  while(list->next!=NULL){
+    if(list->next->value<list->value){
+      return 0;
+    }
+    list=list->next;
+  }
+  return 1;
+}
 
 
+void ajouterEnPlace(elem ** list, int valad)
+{
+
+
+
+  int add = 0;
+
+
+
+  if(estTrie(*list)){
+    if((*list)->value > valad){
+      ajouterEnTete(list, valad);
+      add = 1;
+    }
+    elem * suivant = *(list);
+
+    while(suivant->next != NULL && !add){
+      if (suivant->next->value > valad){
+        //creation d'un nouvel element
+        elem * newNode = malloc(sizeof(elem));
+        newNode->value = valad;
+        //on attache le nouvel element
+        newNode->next = suivant->next;
+        suivant->next = newNode;
+        add = 1;
+        break;
+      }
+      suivant = suivant->next;
+    }
+    if(!add)
+      ajouter_en_queue(*list, valad);
+  }
+  else{
+    printf("La liste n'est pas triee\n");
+  }
 
 }

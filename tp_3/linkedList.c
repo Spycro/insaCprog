@@ -15,6 +15,8 @@ void supprimer(elem ** list,int valor);
 void dupliquer(elem ** list, int valed);
 int estTrie(elem* list);
 void ajouterEnPlace(elem ** list, int valad);
+void retourner (elem ** list);
+
 
 int main(int argc, char const *argv[]) {
   elem * list;
@@ -33,6 +35,7 @@ int main(int argc, char const *argv[]) {
     printf("\t6: dupliquer une valeur\n");
     printf("\t7: verifier si la liste est triee\n");
     printf("\t8: ajoute une val a la bonne place\n");
+    printf("\t9: retourner la liste\n", );
     printf("\t0: quitter\n");
     int choix;
     scanf("%d", &choix);
@@ -74,6 +77,10 @@ int main(int argc, char const *argv[]) {
         case 8:
           scanf("%d", &val);
           ajouterEnPlace(&list, val);
+          break;
+        case 9:
+          scanf("%d", &val);
+          retourner(&list);
           break;
         default:
           printf("choix incorrect\n");
@@ -227,6 +234,19 @@ void ajouterEnPlace(elem ** list, int valad)
   }
   else{
     printf("La liste n'est pas triee\n");
+  }
+
+}
+
+
+void retourner (elem ** list)
+{
+  elem * precedent = NULL;
+  elem * courant = * list;
+  elem * suivant (*list)->next;
+
+  while (suivant !=NULL) {
+    
   }
 
 }

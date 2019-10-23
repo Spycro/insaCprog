@@ -115,7 +115,7 @@ unsigned int Ensemble::Ajuster(int delta)
   if(delta==0){
     return tailleMax;
   }
-  if(tailleMax-tailleAct<delta){
+  if(tailleMax-tailleAct<abs(delta)){
     tailleMax=tailleAct;
     int * temp = contenu;
     contenu = new int[tailleMax];

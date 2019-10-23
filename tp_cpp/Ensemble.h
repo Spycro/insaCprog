@@ -43,7 +43,7 @@ public:
     bool Retirer(int element);
     unsigned int Retirer(const Ensemble & unEnsemble);
 //------------------------------------------------- Surcharge d'opérateurs
-    Ensemble & operator = ( const Ensemble & unEnsemble );
+  //    Ensemble & operator = ( const Ensemble & unEnsemble );
     // Mode d'emploi :
     //
     // Contrat :
@@ -76,8 +76,8 @@ protected:
 //----------------------------------------------------- Méthodes protégées
   void selectionSort();
 //----------------------------------------------------- Attributs protégés
-  int tailleMax;
-  int tailleAct;
+  unsigned int tailleMax;
+  unsigned int tailleAct;
   int *contenu;
 };
 

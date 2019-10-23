@@ -104,7 +104,12 @@ unsigned int Ensemble::Ajuster(int delta)
 {
   if(delta>0){
     tailleMax+=delta;
-    *this = Ensemble(contenu, tailleMax);
+    int * temp = contenu;
+    contenu = new int[tailleMax];
+    for (size_t i = 0; i < tailleAct; i++) {
+      contenu[i] = temp[i];
+    }
+    delete []temp;
     return tailleMax;
   }
   if(delta==0){
@@ -112,11 +117,21 @@ unsigned int Ensemble::Ajuster(int delta)
   }
   if(tailleMax-tailleAct<delta){
     tailleMax=tailleAct;
-    *this=Ensemble(contenu,tailleMax);
-    return tailleMax; 
+    int * temp = contenu;
+    contenu = new int[tailleMax];
+    for (size_t i = 0; i < tailleAct; i++) {
+      contenu[i] = temp[i];
+    }
+    delete []temp;
+    return tailleMax;
   }else{
     tailleMax-=delta;
-    *this=Ensemble(contenu,tailleMax);
+    int * temp = contenu;
+    contenu = new int[tailleMax];
+    for (size_t i = 0; i < tailleAct; i++) {
+      contenu[i] = temp[i];
+    }
+    delete []temp;
     return tailleMax;
   }
 }

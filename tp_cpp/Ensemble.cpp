@@ -183,7 +183,6 @@ unsigned int Ensemble::Retirer(const Ensemble & unEnsemble)
 Ensemble & Ensemble::operator = ( const Ensemble & unEnsemble )
 // Algorithme :
 {
-  return NULL;
 } //----- Fin de operator =
 
 //

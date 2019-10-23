@@ -15,6 +15,7 @@
 //------------------------------------------------------------- Constantes
 const int CARD_MAX = 5;
 //------------------------------------------------------------------ Types
+typedef enum crduEstInclus{NON_INCLUSION, INCLUSION_LARGE, INCLUSION_STRICTE  } crduEstInclus;
 
 //------------------------------------------------------------------------
 // Rôle de la classe <Ensemble>
@@ -76,7 +77,6 @@ protected:
   int tailleMax;
   int tailleAct;
   int *contenu;
-  typedef enum crduEstInclus{NON_INCLUSION, INCLUSION_LARGE, INCLUSION_STRICTE  } crduEstInclus;
 };
 
 //-------------------------------- Autres définitions dépendantes de <Ensemble>

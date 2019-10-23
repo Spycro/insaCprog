@@ -125,7 +125,7 @@ unsigned int Ensemble::Ajuster(int delta)
     delete []temp;
     return tailleMax;
   }else{
-    tailleMax-=delta;
+    tailleMax+=delta;
     int * temp = contenu;
     contenu = new int[tailleMax];
     for (size_t i = 0; i < tailleAct; i++) {

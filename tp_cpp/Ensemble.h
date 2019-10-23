@@ -36,6 +36,7 @@ public:
 
     void Afficher( void );
     bool EstEgal( const Ensemble & unEnsemble ) const;
+    crduEstInclus EstInclus (const Ensemble & unEnsemble ) const;
 
 
 //------------------------------------------------- Surcharge d'opérateurs
@@ -75,6 +76,7 @@ protected:
   int tailleMax;
   int tailleAct;
   int *contenu;
+  enum crduEstInclus{NON_INCLUSION, INCLUSION_LARGE, INCLUSION_STRICTE  };
 };
 
 //-------------------------------- Autres définitions dépendantes de <Ensemble>

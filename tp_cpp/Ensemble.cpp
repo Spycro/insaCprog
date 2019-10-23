@@ -61,6 +61,27 @@ bool Ensemble::EstEgal( const Ensemble & unEnsemble ) const
 
   return true;
 }
+
+
+crduEstInclus Ensemble::EstInclus ( const Ensemble & unEnsemble ) const
+{
+  if( this->EstEgal(unEnsemble) ) return INCLUSION_LARGE;
+
+  if(this->tailleAct<unEnsemble.tailleAct) return NON_INCLUSION;
+  int cmt=0;
+  for(int i=0;i<this->tailleAct;i++){
+    for(int j=0;j<unEnsemble.tailleAct;j++){
+        if(this->contenu[i]==unEnsemble.contenu[j]){
+          cmt++;
+        }
+    }
+    if(cmt==this->tailleAct){
+      return INCLUSION_STRICTE;
+    }else{
+      return NON_INCLUSION;
+    }
+  }
+}
 //------------------------------------------------- Surcharge d'opérateurs
 Ensemble & Ensemble::operator = ( const Ensemble & unEnsemble )
 // Algorithme :

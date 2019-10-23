@@ -40,6 +40,7 @@ public:
     crduEstInclus EstInclus (const Ensemble & unEnsemble ) const;
     crduAjouter Ajouter(int a);
     unsigned int Ajuster(int delta);
+    bool Retirer(int element);
 
 //------------------------------------------------- Surcharge d'opérateurs
     Ensemble & operator = ( const Ensemble & unEnsemble );

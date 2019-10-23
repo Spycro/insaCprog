@@ -136,6 +136,31 @@ unsigned int Ensemble::Ajuster(int delta)
   }
 }
 
+bool Ensemble::retirer( int element )
+{
+  bool present=false;
+  for(int i=0;i<tailleAct;i++){
+    if(contenu[i]==element){
+      present=true;
+    }
+  }
+  if(present){
+    int* temp=contenu;
+    contenu=new int[tailleAct-1];
+    int cmt=0;
+    for(int i=0;i<tailleAct;i++){
+      if(temp[i]!=element){
+        contenu[cmt]=temp[i];
+        cmt++;
+      }
+
+    }
+    return true;
+  }else{
+    tailleMax=tailleAct;
+    return false;
+  }
+}
 //------------------------------------------------- Surcharge d'opérateurs
 Ensemble & Ensemble::operator = ( const Ensemble & unEnsemble )
 // Algorithme :

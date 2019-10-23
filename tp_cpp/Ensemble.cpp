@@ -175,7 +175,7 @@ unsigned int Ensemble::Retirer(const Ensemble & unEnsemble)
     if(Retirer(unEnsemble.contenu[i])){
       cout << "\nOn retire un elem " << unEnsemble.contenu[i] << " " << i < "\n";
       cmt++;
-      cout <<"compteur de retirage : " << cmt << "\n"
+      cout <<"compteur de retirage : " << cmt << "\n";
     }
   }
   cout << '\n';

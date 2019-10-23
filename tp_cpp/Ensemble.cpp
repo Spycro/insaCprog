@@ -167,10 +167,14 @@ bool Ensemble::Retirer( int element )
 
 unsigned int Ensemble::Retirer(const Ensemble & unEnsemble)
 {
+  std::cout << "____________________" << '\n';
+  unEnsemble.Afficher();
+  std::cout << "____________________" << '\n';
   int tailleMaxBackup = tailleMax;
   int cmt = 0;
   for (size_t i = 0; i < unEnsemble.tailleAct; i++) {
     if(this->Retirer(unEnsemble.contenu[i])){
+
       cmt++;
     }
   }

@@ -136,7 +136,7 @@ unsigned int Ensemble::Ajuster(int delta)
   }
 }
 
-bool Ensemble::retirer( int element )
+bool Ensemble::Retirer( int element )
 {
   bool present=false;
   for(int i=0;i<tailleAct;i++){

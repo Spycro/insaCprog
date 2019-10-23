@@ -70,7 +70,7 @@ Ensemble::Ensemble ( const Ensemble & unEnsemble )
 } //----- Fin de Ensemble (constructeur de copie)
 
 
-Ensemble::Ensemble ( unsigned int cardMax )
+Ensemble::Ensemble ( unsigned int cardMax = CARD_MAX )
 // Algorithme :
 //
 {

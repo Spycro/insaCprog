@@ -31,7 +31,7 @@ using namespace std;
 void Ensemble::Afficher( void )
 {
 
-  selectionSort();
+
   cout << tailleAct << "\r\n";
   cout << tailleMax << "\r\n";
 
@@ -51,10 +51,21 @@ void Ensemble::Afficher( void )
 }
 
 
+bool EstEgal( cont Ensemble & unEnsemble ) const
+{
+  if (this.tailleAct != unEnsemble.tailleAct) return false;
+
+  for (int i = 0; i < tailleAct; i++) {
+    if(this.contenu[i] != unEnsemble.contenu[i]) return false;
+  }
+
+  return true;
+}
 //------------------------------------------------- Surcharge d'opérateurs
 Ensemble & Ensemble::operator = ( const Ensemble & unEnsemble )
 // Algorithme :
 {
+
 } //----- Fin de operator =
 
 //
@@ -67,6 +78,9 @@ Ensemble::Ensemble ( const Ensemble & unEnsemble )
 #ifdef MAP
     cout << "Appel au constructeur de copie de <Ensemble>" << endl;
 #endif
+
+
+selectionSort();
 } //----- Fin de Ensemble (constructeur de copie)
 
 
@@ -81,6 +95,7 @@ Ensemble::Ensemble ( unsigned int cardMax )
   tailleMax = cardMax;
   tailleAct = 0;
   contenu = new int[tailleMax];
+  selectionSort();
 } //----- Fin de Ensemble
 
 
@@ -105,6 +120,7 @@ Ensemble::Ensemble ( int t[], unsigned int nbElements)
     }
   }
   tailleAct = cmt;
+  selectionSort();
 }
 
 Ensemble::~Ensemble ( )

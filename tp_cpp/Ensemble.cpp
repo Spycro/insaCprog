@@ -75,11 +75,11 @@ crduEstInclus Ensemble::EstInclus ( const Ensemble & unEnsemble ) const
           cmt++;
         }
     }
-    if(cmt==this->tailleAct){
-      return INCLUSION_STRICTE;
-    }else{
-      return NON_INCLUSION;
-    }
+  }
+  if(cmt==this->tailleAct){
+    return INCLUSION_STRICTE;
+  }else{
+    return NON_INCLUSION;
   }
 }
 //------------------------------------------------- Surcharge d'opérateurs

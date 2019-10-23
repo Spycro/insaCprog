@@ -164,6 +164,21 @@ bool Ensemble::Retirer( int element )
     return false;
   }
 }
+
+unsigned int Ensemble::Retirer(const Ensemble & unEnsemble)
+{
+  int tailleMaxBackup = tailleMax;
+  int cmt = 0;
+  for (size_t i = 0; i < unEnsemble.tailleAct; i++) {
+    if(this->Retirer(unEnsemble.contenu[i])){
+      cmt++;
+    }
+  }
+  this->tailleMax = tailleMaxBackup;
+  return cmt;
+}
+
+
 //------------------------------------------------- Surcharge d'opérateurs
 Ensemble & Ensemble::operator = ( const Ensemble & unEnsemble )
 // Algorithme :

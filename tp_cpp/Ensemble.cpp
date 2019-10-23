@@ -76,6 +76,8 @@ crduEstInclus Ensemble::EstInclus ( const Ensemble & unEnsemble ) const
         }
     }
   }
+
+  cout << cmt ;
   if(cmt==this->tailleAct){
     return INCLUSION_STRICTE;
   }else{

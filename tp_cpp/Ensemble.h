@@ -35,7 +35,7 @@ public:
     //
 
     void Afficher( void );
-    bool EstEgal( cont Ensemble & unEnsemble ) const;
+    bool EstEgal( const Ensemble & unEnsemble ) const;
 
 
 //------------------------------------------------- Surcharge d'opérateurs

@@ -51,7 +51,7 @@ void Ensemble::Afficher( void )
 }
 
 
-bool EstEgal( cont Ensemble & unEnsemble ) const
+bool EstEgal( const Ensemble & unEnsemble ) const
 {
   if (this.tailleAct != unEnsemble.tailleAct) return false;
 

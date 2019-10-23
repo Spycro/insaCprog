@@ -53,10 +53,10 @@ void Ensemble::Afficher( void )
 
 bool Ensemble::EstEgal( const Ensemble & unEnsemble ) const
 {
-  if (this.tailleAct != unEnsemble.tailleAct) return false;
+  if (this->tailleAct != unEnsemble.tailleAct) return false;
 
   for (int i = 0; i < tailleAct; i++) {
-    if(this.contenu[i] != unEnsemble.contenu[i]) return false;
+    if(this->contenu[i] != unEnsemble.contenu[i]) return false;
   }
 
   return true;

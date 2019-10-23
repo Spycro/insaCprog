@@ -171,7 +171,7 @@ unsigned int Ensemble::Retirer(const Ensemble & unEnsemble)
   int tailleMaxBackup = tailleMax;
   int cmt = 0;
   for (size_t i = 0; i < unEnsemble.tailleAct; i++) {
-    cout << unEnsemble.contenu[i] << " ";
+    cout << unEnsemble.contenu[i] << " " << "indice : " << i;
     if(this->Retirer(unEnsemble.contenu[i])){
 
       cmt++;

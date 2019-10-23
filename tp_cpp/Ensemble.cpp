@@ -70,7 +70,7 @@ Ensemble::Ensemble ( const Ensemble & unEnsemble )
 } //----- Fin de Ensemble (constructeur de copie)
 
 
-Ensemble::Ensemble ( unsigned int cardMax = CARD_MAX )
+Ensemble::Ensemble ( unsigned int cardMax )
 // Algorithme :
 //
 {
@@ -78,7 +78,7 @@ Ensemble::Ensemble ( unsigned int cardMax = CARD_MAX )
     cout << "Appel au constructeur de <Ensemble>" << endl;
 #endif
 
-  tailleMax = CARD_MAX;
+  tailleMax = cardMax;
   tailleAct = 0;
   contenu = new int[tailleMax];
 } //----- Fin de Ensemble

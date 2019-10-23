@@ -155,6 +155,9 @@ bool Ensemble::Retirer( int element )
       }
 
     }
+    delete []temp;
+    tailleAct--;
+    tailleMax = tailleAct;
     return true;
   }else{
     tailleMax=tailleAct;

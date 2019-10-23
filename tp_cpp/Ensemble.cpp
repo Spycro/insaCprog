@@ -170,10 +170,10 @@ unsigned int Ensemble::Retirer(const Ensemble & unEnsemble)
   std::cout << "____________________" << unEnsemble.tailleMax << " taille act : " << unEnsemble.tailleAct << '\n';
   int tailleMaxBackup = tailleMax;
   int cmt = 0;
-  for (size_t i = 0; i < unEnsemble.tailleAct; i++) {
-    cout << unEnsemble.contenu[i] << " " << "indice : " << i << " ";
-    if(Retirer(unEnsemble.contenu[i])){
-      cout << "\nOn retire un elem " << unEnsemble.contenu[i] << " " << i << "\n";
+  for (int k = 0; k < unEnsemble.tailleAct; k++) {
+    cout << unEnsemble.contenu[k] << " " << "indice : " << k << " ";
+    if(Retirer(unEnsemble.contenu[k])){
+      cout << "\nOn retire un elem " << unEnsemble.contenu[k] << " " << k << "\n";
       cmt++;
       cout <<"compteur de retirage : " << cmt << "\n";
     }

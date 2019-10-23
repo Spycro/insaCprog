@@ -39,7 +39,7 @@ public:
     bool EstEgal( const Ensemble & unEnsemble ) const;
     crduEstInclus EstInclus (const Ensemble & unEnsemble ) const;
     crduAjouter Ajouter(int a);
-
+    unsigned int Ajuster(int delta);
 
 //------------------------------------------------- Surcharge d'opérateurs
     Ensemble & operator = ( const Ensemble & unEnsemble );

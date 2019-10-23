@@ -100,6 +100,27 @@ crduAjouter Ensemble::Ajouter ( int a )
 
 }
 
+unsigned int Ensemble::Ajuster(int delta)
+{
+  if(delta>0){
+    tailleMax+=delta;
+    *this = Ensemble(contenu, tailleMax);
+    return tailleMax;
+  }
+  if(delta==0){
+    return tailleMax;
+  }
+  if(tailleMax-tailleAct<delta){
+    tailleMax=tailleAct;
+    *this=Ensemble(contenu,tailleMax);
+    return tailleMax; 
+  }else{
+    tailleMax-=delta;
+    *this=Ensemble(contenu,tailleMax);
+    return tailleMax;
+  }
+}
+
 //------------------------------------------------- Surcharge d'opérateurs
 Ensemble & Ensemble::operator = ( const Ensemble & unEnsemble )
 // Algorithme :

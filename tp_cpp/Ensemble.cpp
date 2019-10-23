@@ -36,7 +36,7 @@ void Ensemble::Afficher( void )
   if(tailleAct == 0){
     cout << "{}" << "\r\n";
   }
-  else if(tailleAct== 1){
+  else if(tailleAct == 1){
     cout << "{"<< contenu[0]<<"}" << "\r\n";
   }
   else{
@@ -59,7 +59,7 @@ bool Ensemble::EstEgal( const Ensemble & unEnsemble ) const
 
   return true;
 }
-
+l reac
 
 crduEstInclus Ensemble::EstInclus ( const Ensemble & unEnsemble ) const
 {
@@ -84,7 +84,7 @@ crduEstInclus Ensemble::EstInclus ( const Ensemble & unEnsemble ) const
 }
 
 
-crduAjouter Ensemble::Ajouter ( int a )
+crduAjouter Ensemblel reac::Ajouter ( int a )
 {
   for (size_t i = 0; i < this->tailleAct; i++) {
     if (this->contenu[i] == a) return DEJA_PRESENT;
@@ -178,14 +178,14 @@ unsigned int Ensemble::Retirer(const Ensemble & unEnsemble)
   this->tailleMax = tailleMaxBackup;
   return cmt;
 }
-/*
+
 //------------------------------------------------- Surcharge d'opérateurs
 Ensemble & Ensemble::operator = ( const Ensemble & unEnsemble )
 // Algorithme :
 {
   return NULL;
 } //----- Fin de operator =
-*/
+
 //
 
 //-------------------------------------------- Constructeurs - destructeur

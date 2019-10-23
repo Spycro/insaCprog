@@ -59,7 +59,6 @@ bool Ensemble::EstEgal( const Ensemble & unEnsemble ) const
 
   return true;
 }
-l reac
 
 crduEstInclus Ensemble::EstInclus ( const Ensemble & unEnsemble ) const
 {
@@ -84,7 +83,7 @@ crduEstInclus Ensemble::EstInclus ( const Ensemble & unEnsemble ) const
 }
 
 
-crduAjouter Ensemblel reac::Ajouter ( int a )
+crduAjouter Ensemble::Ajouter ( int a )
 {
   for (size_t i = 0; i < this->tailleAct; i++) {
     if (this->contenu[i] == a) return DEJA_PRESENT;

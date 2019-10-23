@@ -177,6 +177,7 @@ unsigned int Ensemble::Retirer(const Ensemble & unEnsemble)
       cmt++;
     }
   }
+  cout << '\n';
   this->tailleMax = tailleMaxBackup;
   return cmt;
 }

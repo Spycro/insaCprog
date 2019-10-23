@@ -68,7 +68,7 @@ crduEstInclus Ensemble::EstInclus ( const Ensemble & unEnsemble ) const
   if( this->EstEgal(unEnsemble) ) return INCLUSION_LARGE;
 
   if(this->tailleAct>unEnsemble.tailleAct) return NON_INCLUSION;
-  
+
   int cmt=0;
   for(int i=0;i<this->tailleAct;i++){
     for(int j=0;j<unEnsemble.tailleAct;j++){
@@ -84,6 +84,22 @@ crduEstInclus Ensemble::EstInclus ( const Ensemble & unEnsemble ) const
     return NON_INCLUSION;
   }
 }
+
+
+crduAjouter Ensemble::Ajouter ( int a )
+{
+  for (size_t i = 0; i < this->tailleAct; i++) {
+    if (this->contenu[i] == a) return DEJA_PRESENT;
+  }
+  if(tailleAct == tailleMax) return PLEIN;
+
+  contenu[tailleAct] = a;
+  tailleAct++;
+  selectionSort();
+  return AJOUTE;
+
+}
+
 //------------------------------------------------- Surcharge d'opérateurs
 Ensemble & Ensemble::operator = ( const Ensemble & unEnsemble )
 // Algorithme :

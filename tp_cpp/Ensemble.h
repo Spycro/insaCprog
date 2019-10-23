@@ -16,7 +16,7 @@
 const int CARD_MAX = 5;
 //------------------------------------------------------------------ Types
 typedef enum crduEstInclus{NON_INCLUSION, INCLUSION_LARGE, INCLUSION_STRICTE  } crduEstInclus;
-
+typedef enum crduAjouter{DEJA_PRESENT, PLEIN, AJOUTE} crduAjouter;
 //------------------------------------------------------------------------
 // Rôle de la classe <Ensemble>
 //
@@ -38,6 +38,7 @@ public:
     void Afficher( void );
     bool EstEgal( const Ensemble & unEnsemble ) const;
     crduEstInclus EstInclus (const Ensemble & unEnsemble ) const;
+    crduAjouter Ajouter(int a);
 
 
 //------------------------------------------------- Surcharge d'opérateurs

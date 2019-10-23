@@ -173,8 +173,9 @@ unsigned int Ensemble::Retirer(const Ensemble & unEnsemble)
   for (size_t i = 0; i < unEnsemble.tailleAct; i++) {
     cout << unEnsemble.contenu[i] << " " << "indice : " << i << " ";
     if(Retirer(unEnsemble.contenu[i])){
-
+      cout << "\nOn retire un elem " << unEnsemble.contenu[i] << " " << i < "\n";
       cmt++;
+      cout <<"compteur de retirage : " << cmt << "\n"
     }
   }
   cout << '\n';

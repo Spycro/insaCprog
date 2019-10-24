@@ -30,13 +30,15 @@ using namespace std;
 
 void Ensemble::Afficher( void )
 {
+
+
   cout << tailleAct << "\r\n";
   cout << tailleMax << "\r\n";
 
   if(tailleAct == 0){
     cout << "{}" << "\r\n";
   }
-  else if(tailleAct == 1){
+  else if(tailleAct==1){
     cout << "{"<< contenu[0]<<"}" << "\r\n";
   }
   else{
@@ -53,12 +55,13 @@ bool Ensemble::EstEgal( const Ensemble & unEnsemble ) const
 {
   if (this->tailleAct != unEnsemble.tailleAct) return false;
 
-  for (size_t i = 0; i < tailleAct; i++) {
+  for (int i = 0; i < tailleAct; i++) {
     if(this->contenu[i] != unEnsemble.contenu[i]) return false;
   }
 
   return true;
 }
+
 
 crduEstInclus Ensemble::EstInclus ( const Ensemble & unEnsemble ) const
 {
@@ -66,9 +69,9 @@ crduEstInclus Ensemble::EstInclus ( const Ensemble & unEnsemble ) const
 
   if(this->tailleAct>unEnsemble.tailleAct) return NON_INCLUSION;
 
-  size_t cmt=0;
-  for(size_t i=0;i<this->tailleAct;i++){
-    for(size_t j=0;j<unEnsemble.tailleAct;j++){
+  int cmt=0;
+  for(int i=0;i<this->tailleAct;i++){
+    for(int j=0;j<unEnsemble.tailleAct;j++){
         if(this->contenu[i]==unEnsemble.contenu[j]){
           cmt++;
         }
@@ -109,11 +112,10 @@ unsigned int Ensemble::Ajuster(int delta)
     delete []temp;
     return tailleMax;
   }
-  else if(delta==0){
+  if(delta==0){
     return tailleMax;
   }
-  else {
-    if(tailleMax-tailleAct<(unsigned)-delta){
+  if(tailleMax-tailleAct<-delta){
     tailleMax=tailleAct;
     int * temp = contenu;
     contenu = new int[tailleMax];
@@ -133,12 +135,11 @@ unsigned int Ensemble::Ajuster(int delta)
     return tailleMax;
   }
 }
-}
 
 bool Ensemble::Retirer( int element )
 {
   bool present=false;
-  for(size_t i=0;i<tailleAct;i++){
+  for(int i=0;i<tailleAct;i++){
     if(contenu[i]==element){
       present=true;
     }
@@ -147,7 +148,7 @@ bool Ensemble::Retirer( int element )
     int* temp=contenu;
     contenu=new int[tailleAct-1];
     int cmt=0;
-    for(size_t i=0;i<tailleAct;i++){
+    for(int i=0;i<tailleAct;i++){
       if(temp[i]!=element){
         contenu[cmt]=temp[i];
         cmt++;
@@ -166,22 +167,33 @@ bool Ensemble::Retirer( int element )
 
 unsigned int Ensemble::Retirer(const Ensemble & unEnsemble)
 {
-  int tailleMaxBackup = tailleMax;
   int cmt = 0;
+  for (int k = 0; k < unEnsemble.tailleAct; k++) {
+    for (size_t i = 0; i < this->tailleAct; i++) {
+      if(unEnsemble.contenu[k] == this->contenu[i]){
+        int * temp = this->contenu;
+        this->contenu=new int[tailleAct];
+        int indiceTemp=0;
+        for(int j=0;j<tailleAct;j++){
+          if(temp[j]!=unEnsemble.contenu[k]){
+            contenu[cmt]=temp[j];
+            indiceTemp++;
+          }
 
-  for (size_t k = 0; k < unEnsemble.tailleAct; k++) {
-    if(Retirer(unEnsemble.contenu[k])){
-      cmt++;
+        }
+        delete []temp;
+      }
     }
   }
-  this->tailleMax = tailleMaxBackup;
   return cmt;
 }
+
 
 //------------------------------------------------- Surcharge d'opérateurs
 Ensemble & Ensemble::operator = ( const Ensemble & unEnsemble )
 // Algorithme :
 {
+
 } //----- Fin de operator =
 
 //
@@ -254,8 +266,7 @@ Ensemble::~Ensemble ( )
 
 //------------------------------------------------------------------ PRIVE
 void Ensemble::selectionSort() {
-   size_t i, j;
-   int min, temp;
+   int i, j, min, temp;
    for (i = 0; i < tailleAct - 1; i++) {
       min = i;
       for (j = i + 1; j < tailleAct; j++)

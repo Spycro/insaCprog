@@ -76,8 +76,8 @@ protected:
 //----------------------------------------------------- Méthodes protégées
   void selectionSort();
 //----------------------------------------------------- Attributs protégés
-  unsigned int tailleMax;
-  unsigned int tailleAct;
+  int tailleMax;
+  int tailleAct;
   int *contenu;
 };
 

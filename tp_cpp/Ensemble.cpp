@@ -168,23 +168,32 @@ bool Ensemble::Retirer( int element )
 unsigned int Ensemble::Retirer(const Ensemble & unEnsemble)
 {
   int cmt = 0;
-  for (int k = 0; k < unEnsemble.tailleAct; k++) {
-    for (size_t i = 0; i < this->tailleAct; i++) {
-      if(unEnsemble.contenu[k] == this->contenu[i]){
-        int * temp = this->contenu;
-        this->contenu=new int[tailleAct];
-        int indiceTemp=0;
-        for(int j=0;j<tailleAct;j++){
-          if(temp[j]!=unEnsemble.contenu[k]){
-            contenu[cmt]=temp[j];
-            indiceTemp++;
-          }
+  //toutes les modfications sont faites dans le tableau temporaire
+  //copie du contenu dans temp
+  int * temp = new int[tailleAct];
+  for (size_t i = 0; i < tailleAct; i++) {
+    temp[i] = this->contenu[i];
+  }
 
+  for (size_t i = 0; i < unEnsemble.tailleAct; i++) {
+    for (size_t k = 0; k < this->tailleAct; k++) {
+      if(unEnsemble.contenu[i] == this->contenu[k]){
+        //un element de l'ensemble a retirer est dans l'ensemble This!
+        //on modifie le tableau temporaire :
+        cmt = 0;
+        for (size_t j = 0; j < tailleAct; j++) {
+          if(unEnsemble.contenu[i] != this->contenu[j]){
+            temp[cmt] = this->contenu[j];
+            cmt++;
+          }
         }
-        delete []temp;
       }
     }
+
+    delete []this->contenu;
+    this->contenu = temp;
   }
+
   return cmt;
 }
 

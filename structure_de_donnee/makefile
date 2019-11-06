@@ -1,7 +1,7 @@
 CC=gcc
-CFLAGS=-Wall -Werror
+CFLAGS=-Wall -Werror -g
 
-SRCS=linkedList.c
+SRCS=hashage.c
 OBJS=$(SRCS:.c=.o)
 MAIN=$(OBJS:.o=)
 

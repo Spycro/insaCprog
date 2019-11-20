@@ -67,6 +67,7 @@ TrajetCompose::TrajetCompose ( )
 
 TrajetCompose::TrajetCompose (const char * pDep, const char * pArr, int taille,TrajetSimple * pChemin[] )
 {
+
     depart=pDep;
     arrivee=pArr;
     nbTrajet=taille;

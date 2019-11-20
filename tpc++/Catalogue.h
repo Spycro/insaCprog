@@ -33,7 +33,7 @@ public:
     //
     // Contrat :
     //
-
+    int Ajouter(TrajetSimple* trajet);
 
 //------------------------------------------------- Surcharge d'opérateurs
     Catalogue & operator = ( const Catalogue & unCatalogue );

@@ -16,6 +16,7 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "Catalogue.h"
+#include "TrajetSimple.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -27,6 +28,12 @@ using namespace std;
 //
 //{
 //} //----- Fin de Méthode
+int Catalogue::Ajouter(TrajetSimple* trajet){
+    if(tailleActuel==tailleMax){
+
+    }
+    catalogue[tailleActuel++] = trajet;
+}
 
 
 //------------------------------------------------- Surcharge d'opérateurs
@@ -48,13 +55,16 @@ Catalogue::Catalogue ( const Catalogue & unCatalogue )
 } //----- Fin de Catalogue (constructeur de copie)
 
 
-Catalogue::Catalogue ( )
+Catalogue::Catalogue ()
 // Algorithme :
 //
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Catalogue>" << endl;
 #endif
+    tailleMax=5;
+    tailleActuel=0;
+    catalogue=new TrajetSimple*[tailleMax];
 } //----- Fin de Catalogue
 
 

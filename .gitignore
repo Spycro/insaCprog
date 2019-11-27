@@ -53,3 +53,5 @@ dkms.conf
 
 # File
 bin/
+*.in
+*.diff

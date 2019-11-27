@@ -18,7 +18,8 @@
 typedef enum MT{AUTO, AVION, TRAIN, BATEAU} MT;
 //------------------------------------------------------------------------
 // Rôle de la classe <TrajetSimple>
-//
+//L'objet TrajetSimple représente un trajet d'une ville A vers une ville B
+//Ce trajet est effectué à l'aide d'un moyen de transport
 //
 //------------------------------------------------------------------------
 
@@ -36,26 +37,12 @@ public:
     //
 
     virtual void Afficher() const;
+    const char* getDepart() const;
+    const char* getArrivee() const;
 //------------------------------------------------- Surcharge d'opérateurs
-    TrajetSimple & operator = ( const TrajetSimple & unTrajetSimple );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
 
 //-------------------------------------------- Constructeurs - destructeur
-    TrajetSimple ( const TrajetSimple & unTrajetSimple );
-    // Mode d'emploi (constructeur de copie) :
-    //
-    // Contrat :
-    //
 
-    TrajetSimple ( );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
 
     TrajetSimple (const char* pDep,const char * pArr, MT moyTransport );
 
@@ -79,4 +66,3 @@ MT moyenDeTransport;
 //-------------------------------- Autres définitions dépendantes de <TrajetSimple>
 
 #endif // TrajetSimple_H
-

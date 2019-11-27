@@ -1,9 +1,13 @@
 using namespace std;
 #include <iostream>
+#include <cstring>
 
 #include "TrajetSimple.h"
 #include "TrajetCompose.h"
+#include "Catalogue.h"
 
+void ajouter(Catalogue * c);
+void rechercher(Catalogue * c);
 
 int main(){
     /*ajetSimple* a1 = new TrajetSimple("Paris", "Lyon", AVION);
@@ -17,30 +21,181 @@ int main(){
     b->Afficher();
 
     int val=10;
+
+    //INITIALISATION
+    Catalogue * monCatalogue = new Catalogue();
+
+
     while(val!=0){
         cout<<"Menu : "<<endl;
         cout<<"1 : Ajouter"<<endl;
         cout<<"2 : Afficher"<<endl;
         cout<<"3 : Rechercher pas mieux"<<endl;
         cout<<"4 : Rechercher mieux"<<endl;
-        cout<<"0 : Quitter ce programme pas ouf"<<endl;
+        cout<<"0 : Quitter ce programme"<<endl;
         cin>>val;
         switch(val){
             case 1:
+                ajouter(monCatalogue);
                 break;
             case 2:
+                monCatalogue->Afficher();
                 break;
             case 3:
+                rechercher(monCatalogue);
                 break;
             case 4:
                 break;
-            default : cout<<"bah alors on pue la merde"<<endl;
+            case 0:
+                break;
+            default : cout<<"Valeur incorrecte"<<endl;
                 break;
         }
     }
-    cout << "Ciao les nullos" << endl;
+    cout << "Fin de programme." << endl;
 
 
     delete b;
     return 0;
+}
+
+void ajouter(Catalogue * c){
+    int choix = 0;
+    char * ville1;
+    char * ville2;
+    ville1 = new char[100];
+    ville2 = new char[100];
+    int moyDeTransport;
+    cout << "Voulez vous : " << endl << "1 - Trajet Simple" << endl << "2 - Trajet Compose" << endl;
+    cin >> choix;
+    switch (choix) {
+      //Ajout de trajet Simple
+      case 1:
+      {
+        cout << "Ville de depart : ";
+        cin >> ville1;
+        cout << endl << "Ville d'arrivee : ";
+        cin >> ville2;
+        cout << endl;
+
+
+        cout<<"1 : Auto"<<endl;
+        cout<<"2 : Avion"<<endl;
+        cout<<"3 : Train"<<endl;
+        cout<<"4 : Bateau"<<endl;
+        cout<<"Default : Auto" << endl;
+        cin >> moyDeTransport;
+        switch (moyDeTransport) {
+          case 1:
+              c->Ajouter(new TrajetSimple(ville1, ville2, AUTO));
+              break;
+          case 2:
+              c->Ajouter(new TrajetSimple(ville1, ville2, AVION));
+              break;
+          case 3:
+              c->Ajouter(new TrajetSimple(ville1, ville2, TRAIN));
+              break;
+          case 4:
+              c->Ajouter(new TrajetSimple(ville1, ville2, BATEAU));
+              break;
+          default:
+              c->Ajouter(new TrajetSimple(ville1, ville2, AUTO));
+              break;
+        }
+
+        break;
+      }
+      //Ajout de Trajet Compose
+      case 2:
+      {
+        char * villeDep;
+        villeDep = new char[100];
+        int nbTrajet;
+        bool valide=true;
+        cout << "Combien de d'escale (1 au minimum)" << endl;
+        cin >> nbTrajet;
+        ++nbTrajet;
+        TrajetSimple ** trajet = new TrajetSimple*[nbTrajet];
+
+
+        for(int i = 0; i<nbTrajet;i++){
+
+          cout << "Ville de depart : ";
+          cin >> ville1;
+          cout << endl << "Ville d'arrivee : ";
+          //Premier trajet :
+
+          if(i==0){
+            strcpy(villeDep, ville1);
+          }
+
+          //Comparaison avec nouveau depart et ancienne arrivee
+          if(i>0 && strcmp(ville1,ville2)!=0){
+            valide=false;
+          }
+          if(i!=0){
+            ville2 = new char[100];
+          }
+
+          cin >> ville2;
+          cout << endl;
+
+
+
+          cout<<"1 : Auto"<<endl;
+          cout<<"2 : Avion"<<endl;
+          cout<<"3 : Train"<<endl;
+          cout<<"4 : Bateau"<<endl;
+          cout<<"Default : Auto" << endl;
+          cin >> moyDeTransport;
+          switch (moyDeTransport) {
+            case 1:
+                trajet[i]=new TrajetSimple(ville1, ville2, AUTO);
+                break;
+            case 2:
+                trajet[i]=new TrajetSimple(ville1, ville2, AVION);
+                break;
+            case 3:
+                trajet[i]=new TrajetSimple(ville1, ville2, TRAIN);
+                break;
+            case 4:
+                trajet[i]=new TrajetSimple(ville1, ville2, BATEAU);
+                break;
+            default:
+                trajet[i]=new TrajetSimple(ville1, ville2, AUTO);
+                break;
+
+        }
+        ville1 = new char[100];
+
+        }
+        if(valide){
+          c->Ajouter(new TrajetCompose(villeDep,ville2,nbTrajet,trajet));
+        }else{
+          cout<<"Trajet non conforme"<<endl;
+          delete [] trajet;
+        }
+        break;
+
+      }
+
+      default:
+        cout << "valeur incorrecte" << endl;
+        break;
+
+    }
+}
+
+void rechercher(Catalogue * c){
+  char * ville1 = new char[100];
+  char * ville2 = new char[100];
+  cout << "ville 1 : ";
+  cin >> ville1;
+  cout << endl << "Ville 2 : ";
+  cin >> ville2;
+  cout << endl;
+  c->Rechercher(ville1, ville2);
+
+  delete [] ville1;
+  delete [] ville2;
 }

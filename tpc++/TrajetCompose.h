@@ -18,8 +18,9 @@
 
 //------------------------------------------------------------------------
 // Rôle de la classe <TrajetCompose>
-//
-//
+// Objet decrivant un trajet d'une ville A vers une ville B avec un nombre
+// de ville d'escale.
+// La classe contient un tableau de trajet simple
 //------------------------------------------------------------------------
 
 class TrajetCompose : public TrajetSimple
@@ -37,25 +38,9 @@ public:
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-    TrajetCompose & operator = ( const TrajetCompose & unTrajetCompose );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
 
 
 //-------------------------------------------- Constructeurs - destructeur
-    TrajetCompose ( const TrajetCompose & unTrajetCompose );
-    // Mode d'emploi (constructeur de copie) :
-    //
-    // Contrat :
-    //
-
-    TrajetCompose ( );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
 
     TrajetCompose (const char * pDep, const char * pArr, int taille,TrajetSimple * pChemin[] );
 
@@ -79,4 +64,3 @@ TrajetSimple **chemin ;
 //-------------------------------- Autres définitions dépendantes de <TrajetCompose>
 
 #endif // TrajetCompose_H
-

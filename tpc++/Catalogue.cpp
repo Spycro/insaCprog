@@ -13,6 +13,7 @@
 //-------------------------------------------------------- Include système
 using namespace std;
 #include <iostream>
+#include <cstring>
 
 //------------------------------------------------------ Include personnel
 #include "Catalogue.h"
@@ -23,41 +24,61 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type Catalogue::Méthode ( liste des paramètres )
+// void Catalogue::Ajouter ( TrajetSimple* trajet )
 // Algorithme :
+// si tailleActuel = tailleMax on agrandi le catalogue de 5 trajet
+// avant de faire l'ajout
+// sinon on ajoute simplement le trajet
+// On augmente tailleActuel de 1
 //
-//{
-//} //----- Fin de Méthode
-int Catalogue::Ajouter(TrajetSimple* trajet){
+void Catalogue::Ajouter(TrajetSimple* trajet){
     if(tailleActuel==tailleMax){
-
+      tailleMax+=5;
+      TrajetSimple ** temp = catalogue;
+      catalogue = new TrajetSimple*[tailleMax];
+      for (size_t i = 0; i < tailleActuel; i++) {
+        catalogue[i] = temp[i];
+      }
+      delete temp;
     }
     catalogue[tailleActuel++] = trajet;
 }
 
 
-//------------------------------------------------- Surcharge d'opérateurs
-Catalogue & Catalogue::operator = ( const Catalogue & unCatalogue )
+// void Catalogue::Afficher() const
 // Algorithme :
+// on parcourt tout le tableau de TrajetSimple du catalogue
+// Pour chaque Trajet on appelle la méthode Afficher
 //
-{
-} //----- Fin de operator =
+void Catalogue::Afficher() const{
+    for(int i=0; i<tailleActuel; i++){
+      catalogue[i]->Afficher();
+    }
+}
 
+
+// void Catalogue::Rechercher (char* dep, char* arr )const
+// Algorithme :
+// on parcourt tout le tableau de TrajetSimple du catalogue
+// Pour chaque Trajet du catalogue on vérifie si les attributs depart et
+// arrivee correspondent respectivement au parametre formel dep et arr
+// que l'on recherche
+// Si c'est le cas on affiche le trajet en appelant la méthode Afficher
+void Catalogue::Rechercher(char * dep, char * arr) const{
+  for(int i=0;i<tailleActuel;i++){
+    if(strcmp(dep,this->catalogue[i]->getDepart())==0 && strcmp(arr,this->catalogue[i]->getArrivee())==0){
+      catalogue[i]->Afficher();
+    }
+  }
+}
+
+//------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-Catalogue::Catalogue ( const Catalogue & unCatalogue )
-// Algorithme :
-//
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <Catalogue>" << endl;
-#endif
-} //----- Fin de Catalogue (constructeur de copie)
 
 
 Catalogue::Catalogue ()
-// Algorithme :
-//
+//Création d'un catalogue de tailleActuel = 0 de tailleMax = 5
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Catalogue>" << endl;
@@ -81,4 +102,3 @@ Catalogue::~Catalogue ( )
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
-

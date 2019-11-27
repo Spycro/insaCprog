@@ -45,6 +45,12 @@ void TrajetSimple::Afficher() const {
             break;
     }
 }
+const char* TrajetSimple::getDepart() const{
+  return this->depart;
+}
+const char* TrajetSimple::getArrivee() const{
+  return this->arrivee;
+}
 
 //------------------------------------------------- Surcharge d'opérateurs
 TrajetSimple & TrajetSimple::operator = ( const TrajetSimple & unTrajetSimple )
@@ -96,4 +102,3 @@ TrajetSimple::~TrajetSimple ( )
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
-

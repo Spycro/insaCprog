@@ -9,7 +9,7 @@
 //---------- Interface de la classe <Catalogue> (fichier Catalogue.h) ----------------
 #if ! defined ( Catalogue_H )
 #define Catalogue_H
-
+#include "TrajetSimple.h"
 //--------------------------------------------------- Interfaces utilisées
 
 //------------------------------------------------------------- Constantes
@@ -18,8 +18,8 @@
 
 //------------------------------------------------------------------------
 // Rôle de la classe <Catalogue>
-//
-//
+// Catalogue contenant des TrajetSimple ou des TrajetCompose
+// Il possède une taille maximum et une taille actuelle
 //------------------------------------------------------------------------
 
 class Catalogue
@@ -33,23 +33,13 @@ public:
     //
     // Contrat :
     //
-    int Ajouter(TrajetSimple* trajet);
+    void Ajouter(TrajetSimple* trajet);
+    void Afficher() const;
+    void Rechercher(char * dep, char * arr) const;
 
 //------------------------------------------------- Surcharge d'opérateurs
-    Catalogue & operator = ( const Catalogue & unCatalogue );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
 
 //-------------------------------------------- Constructeurs - destructeur
-    Catalogue ( const Catalogue & unCatalogue );
-    // Mode d'emploi (constructeur de copie) :
-    //
-    // Contrat :
-    //
-
     Catalogue ( );
     // Mode d'emploi :
     //
@@ -70,10 +60,9 @@ protected:
 //----------------------------------------------------- Attributs protégés
     uint tailleActuel;
     uint tailleMax;
-    trajetSimple ** catalogue;
+    TrajetSimple ** catalogue;
 };
 
 //-------------------------------- Autres définitions dépendantes de <Catalogue>
 
 #endif // Catalogue_H
-

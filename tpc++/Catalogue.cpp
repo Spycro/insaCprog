@@ -18,19 +18,14 @@ using namespace std;
 //------------------------------------------------------ Include personnel
 #include "Catalogue.h"
 #include "TrajetSimple.h"
+#define MAP
 
 //------------------------------------------------------------- Constantes
 
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// void Catalogue::Ajouter ( TrajetSimple* trajet )
-// Algorithme :
-// si tailleActuel = tailleMax on agrandi le catalogue de 5 trajet
-// avant de faire l'ajout
-// sinon on ajoute simplement le trajet
-// On augmente tailleActuel de 1
-//
+
 void Catalogue::Ajouter(TrajetSimple* trajet){
     if(tailleActuel==tailleMax){
       tailleMax+=5;
@@ -43,27 +38,26 @@ void Catalogue::Ajouter(TrajetSimple* trajet){
     }
     catalogue[tailleActuel++] = trajet;
 }
-
-
-// void Catalogue::Afficher() const
 // Algorithme :
-// on parcourt tout le tableau de TrajetSimple du catalogue
-// Pour chaque Trajet on appelle la méthode Afficher
+// si tailleActuel = tailleMax on agrandi le catalogue de 5 trajet
+// avant de faire l'ajout
+// sinon on ajoute simplement le trajet
+// On augmente tailleActuel de 1
 //
+
+
 void Catalogue::Afficher() const{
     for(int i=0; i<tailleActuel; i++){
       catalogue[i]->Afficher();
     }
 }
-
-
-// void Catalogue::Rechercher (char* dep, char* arr )const
 // Algorithme :
 // on parcourt tout le tableau de TrajetSimple du catalogue
-// Pour chaque Trajet du catalogue on vérifie si les attributs depart et
-// arrivee correspondent respectivement au parametre formel dep et arr
-// que l'on recherche
-// Si c'est le cas on affiche le trajet en appelant la méthode Afficher
+// Pour chaque Trajet on appelle la méthode Afficher
+//
+
+
+
 void Catalogue::Rechercher(char * dep, char * arr) const{
   for(int i=0;i<tailleActuel;i++){
     if(strcmp(dep,this->catalogue[i]->getDepart())==0 && strcmp(arr,this->catalogue[i]->getArrivee())==0){
@@ -71,7 +65,12 @@ void Catalogue::Rechercher(char * dep, char * arr) const{
     }
   }
 }
-
+// Algorithme :
+// on parcourt tout le tableau de TrajetSimple du catalogue
+// Pour chaque Trajet du catalogue on vérifie si les attributs depart et
+// arrivee correspondent respectivement au parametre formel dep et arr
+// que l'on recherche
+// Si c'est le cas on affiche le trajet en appelant la méthode Afficher
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
@@ -96,6 +95,11 @@ Catalogue::~Catalogue ( )
 #ifdef MAP
     cout << "Appel au destructeur de <Catalogue>" << endl;
 #endif
+
+  for(int i = 0; i<tailleActuel; i++){
+    delete catalogue[i];
+  }
+  delete [] catalogue;
 } //----- Fin de ~Catalogue
 
 

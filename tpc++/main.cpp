@@ -5,6 +5,7 @@ using namespace std;
 #include "TrajetSimple.h"
 #include "TrajetCompose.h"
 #include "Catalogue.h"
+#define MAP
 
 void ajouter(Catalogue * c);
 void rechercher(Catalogue * c);
@@ -13,12 +14,12 @@ int main(){
     /*ajetSimple* a1 = new TrajetSimple("Paris", "Lyon", AVION);
     a1->Afficher();
     TrajetSimple* a2 = new TrajetSimple("Lyon", "Tours", TRAIN);
-    a2->Afficher();*/
+    a2->Afficher();
     TrajetSimple **  tab = new TrajetSimple*[2];
     tab[0] = new TrajetSimple("Paris", "Lyon", AVION);
     tab[1] = new TrajetSimple("Lyon", "Tours", TRAIN);
     TrajetSimple* b=new TrajetCompose("Paris","Toulouse",2,tab);
-    b->Afficher();
+    b->Afficher();*/
 
     int val=10;
 
@@ -53,9 +54,7 @@ int main(){
         }
     }
     cout << "Fin de programme." << endl;
-
-
-    delete b;
+    delete monCatalogue;
     return 0;
 }
 

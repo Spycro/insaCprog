@@ -9,6 +9,7 @@
 //---------- Interface de la classe <TrajetSimple> (fichier TrajetSimple.h) ----------------
 #if ! defined ( TrajetSimple_H )
 #define TrajetSimple_H
+#define MAP
 
 //--------------------------------------------------- Interfaces utilisées
 
@@ -40,9 +41,25 @@ public:
     const char* getDepart() const;
     const char* getArrivee() const;
 //------------------------------------------------- Surcharge d'opérateurs
+    TrajetSimple & operator = ( const TrajetSimple & unTrajetSimple );
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+
 
 //-------------------------------------------- Constructeurs - destructeur
+    TrajetSimple ( const TrajetSimple & unTrajetSimple );
+    // Mode d'emploi (constructeur de copie) :
+    //
+    // Contrat :
+    //
 
+    TrajetSimple ( );
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
 
     TrajetSimple (const char* pDep,const char * pArr, MT moyTransport );
 
@@ -58,9 +75,9 @@ protected:
 //----------------------------------------------------- Méthodes protégées
 
 //----------------------------------------------------- Attributs protégés
-const char * depart;
-const char * arrivee;
-MT moyenDeTransport;
+  const char * depart;
+  const char * arrivee;
+  MT moyenDeTransport;
 };
 
 //-------------------------------- Autres définitions dépendantes de <TrajetSimple>

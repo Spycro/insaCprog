@@ -14,6 +14,7 @@
 using namespace std;
 #include <iostream>
 #include <cstring>
+#define MAP
 
 //------------------------------------------------------ Include personnel
 #include "TrajetSimple.h"
@@ -61,14 +62,6 @@ TrajetSimple & TrajetSimple::operator = ( const TrajetSimple & unTrajetSimple )
 
 
 //-------------------------------------------- Constructeurs - destructeur
-TrajetSimple::TrajetSimple ( const TrajetSimple & unTrajetSimple )
-// Algorithme :
-//
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <TrajetSimple>" << endl;
-#endif
-} //----- Fin de TrajetSimple (constructeur de copie)
 
 
 TrajetSimple::TrajetSimple ( )
@@ -82,6 +75,9 @@ TrajetSimple::TrajetSimple ( )
 
 
 TrajetSimple::TrajetSimple(const char* pDep,const  char* pArr, MT moyTransport){
+  #ifdef MAP
+      cout << "Appel au constructeur de <TrajetSimple>" << endl;
+  #endif
     depart = pDep;
     arrivee = pArr;
     moyenDeTransport=moyTransport;
@@ -95,7 +91,8 @@ TrajetSimple::~TrajetSimple ( )
     cout << "Appel au destructeur de <TrajetSimple>" << endl;
 #endif
 
-
+    delete [] depart;
+    delete [] arrivee;
 } //----- Fin de ~TrajetSimple
 
 

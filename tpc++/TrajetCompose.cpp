@@ -13,6 +13,7 @@
 //-------------------------------------------------------- Include système
 using namespace std;
 #include <iostream>
+#define MAP
 
 //------------------------------------------------------ Include personnel
 #include "TrajetCompose.h"
@@ -45,6 +46,7 @@ TrajetCompose & TrajetCompose::operator = ( const TrajetCompose & unTrajetCompos
 
 
 //-------------------------------------------- Constructeurs - destructeur
+/*
 TrajetCompose::TrajetCompose ( const TrajetCompose & unTrajetCompose )
 // Algorithme :
 //
@@ -53,7 +55,7 @@ TrajetCompose::TrajetCompose ( const TrajetCompose & unTrajetCompose )
     cout << "Appel au constructeur de copie de <TrajetCompose>" << endl;
 #endif
 } //----- Fin de TrajetCompose (constructeur de copie)
-
+*/
 
 TrajetCompose::TrajetCompose ( )
 // Algorithme :
@@ -67,7 +69,9 @@ TrajetCompose::TrajetCompose ( )
 
 TrajetCompose::TrajetCompose (const char * pDep, const char * pArr, int taille,TrajetSimple * pChemin[] )
 {
-
+  #ifdef MAP
+      cout << "Appel au constructeur de <TrajetCompose>" << endl;
+  #endif
     depart=pDep;
     arrivee=pArr;
     nbTrajet=taille;
@@ -83,10 +87,14 @@ TrajetCompose::~TrajetCompose ( )
 #ifdef MAP
     cout << "Appel au destructeur de <TrajetCompose>" << endl;
 #endif
+    for (size_t i = 0; i < nbTrajet; i++) {
+      delete chemin[i];
+    }
+    
+    delete [] chemin;
 } //----- Fin de ~TrajetCompose
 
 
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
-

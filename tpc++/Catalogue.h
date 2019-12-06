@@ -42,13 +42,13 @@ public:
 //-------------------------------------------- Constructeurs - destructeur
     Catalogue ( );
     // Mode d'emploi :
-    //
+    //   Appel simple
     // Contrat :
     //
 
     virtual ~Catalogue ( );
     // Mode d'emploi :
-    //
+    //  Delete d'une zone memoire allouee
     // Contrat :
     //
 

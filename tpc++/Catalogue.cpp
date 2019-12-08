@@ -34,7 +34,7 @@ void Catalogue::Ajouter(TrajetSimple* trajet){
       for (size_t i = 0; i < tailleActuel; i++) {
         catalogue[i] = temp[i];
       }
-      delete temp;
+      //delete temp;
     }
     catalogue[tailleActuel++] = trajet;
 }

@@ -8,8 +8,8 @@ MAIN=main
 $(MAIN): $(OBJS)
 	$(CC) -o bin/$(MAIN) $(OBJS)
 
-%.o: %.c
-	$(CC) $(CFLAGS) -DMAP -c $< -o $@
+%.o: %.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
 
 
 .PHONY: clean

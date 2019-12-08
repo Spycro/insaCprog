@@ -40,7 +40,7 @@ void TrajetCompose::Afficher() const{
 TrajetCompose & TrajetCompose::operator = ( const TrajetCompose & unTrajetCompose )
 // Algorithme :
 //
-{bin/
+{
 } //----- Fin de operator =
 
 

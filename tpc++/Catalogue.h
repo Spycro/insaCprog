@@ -58,7 +58,7 @@ protected:
 //----------------------------------------------------- Méthodes protégées
 
 //----------------------------------------------------- Attributs protégés
-    uint tailleActuel;
+    uint tailleActuelle;
     uint tailleMax;
     TrajetSimple ** catalogue;
 };

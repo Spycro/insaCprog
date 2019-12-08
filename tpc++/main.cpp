@@ -11,19 +11,11 @@ void ajouter(Catalogue * c);
 void rechercher(Catalogue * c);
 
 int main(){
-    /*ajetSimple* a1 = new TrajetSimple("Paris", "Lyon", AVION);
-    a1->Afficher();
-    TrajetSimple* a2 = new TrajetSimple("Lyon", "Tours", TRAIN);
-    a2->Afficher();
-    TrajetSimple **  tab = new TrajetSimple*[2];
-    tab[0] = new TrajetSimple("Paris", "Lyon", AVION);
-    tab[1] = new TrajetSimple("Lyon", "Tours", TRAIN);
-    TrajetSimple* b=new TrajetCompose("Paris","Toulouse",2,tab);
-    b->Afficher();*/
 
+    //Variable de choix du menu
     int val=10;
 
-    //INITIALISATION
+    //INITIALISATION du Catalogue
     Catalogue * monCatalogue = new Catalogue();
 
 
@@ -194,6 +186,8 @@ void ajouter(Catalogue * c){
     }
 }
 
+//fonction ordinaire permettant la recherche simple d'un
+//trajet dans le Catalogue.
 void rechercher(Catalogue * c){
   char * ville1 = new char[100];
   char * ville2 = new char[100];

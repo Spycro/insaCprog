@@ -37,11 +37,6 @@ void TrajetCompose::Afficher() const{
 }
 
 //------------------------------------------------- Surcharge d'opérateurs
-TrajetCompose & TrajetCompose::operator = ( const TrajetCompose & unTrajetCompose )
-// Algorithme :
-//
-{
-} //----- Fin de operator =
 
 
 //-------------------------------------------- Constructeurs - destructeur

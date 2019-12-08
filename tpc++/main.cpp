@@ -60,10 +60,8 @@ int main(){
 
 void ajouter(Catalogue * c){
     int choix = 0;
-    char * ville1;
-    char * ville2;
-    ville1 = new char[100];
-    ville2 = new char[100];
+    char * ville1 = new char[100];
+    char * ville2 = new char[100];
     int moyDeTransport;
     cout << "Voulez vous : " << endl << "1 - Trajet Simple" << endl << "2 - Trajet Compose" << endl;
     cin >> choix;
@@ -107,8 +105,10 @@ void ajouter(Catalogue * c){
       //Ajout de Trajet Compose
       case 2:
       {
-        char * villeDep;
-        villeDep = new char[100];
+        //Variable permettant de garder en mémoire la première ville choisie
+        char * villeDep = new char[100];
+        //Variable permettant de garder en mémoire la derniere ville choisie
+        char * villeArrivee = new char[100];
         int nbTrajet;
         bool valide=true;
         cout << "Combien de d'escale (1 au minimum)" << endl;
@@ -138,7 +138,7 @@ void ajouter(Catalogue * c){
 
           cin >> ville2;
           cout << endl;
-
+          if(i == nbTrajet - 1) strcpy(villeArrivee, ville2);
 
 
           cout<<"1 : Auto"<<endl;
@@ -169,7 +169,7 @@ void ajouter(Catalogue * c){
 
         }
         if(valide){
-          c->Ajouter(new TrajetCompose(villeDep,ville2,nbTrajet,trajet));
+          c->Ajouter(new TrajetCompose(villeDep,villeArrivee,nbTrajet,trajet));
         }else{
           cout<<"Trajet non conforme"<<endl;
           delete [] trajet;

@@ -170,11 +170,15 @@ void ajouter(Catalogue * c){
         }
         //On supprime le dernier ville1 allouee car il est inutile
         delete [] ville1;
-        //Verification de la bonne integrite du trajet 
+        //Verification de la bonne integrite du trajet
         if(valide){
           c->Ajouter(new TrajetCompose(villeDep,villeArrivee,nbTrajet,trajet));
         }else{
+          //suppression des trajets cree
           cout<<"Trajet non conforme"<<endl;
+          for (size_t i = 0; i < nbTrajet; i++) {
+            delete trajet[i];
+          }
           delete [] trajet;
         }
         break;

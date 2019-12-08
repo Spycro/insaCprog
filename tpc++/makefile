@@ -8,7 +8,7 @@ MAIN=main
 $(MAIN): $(OBJS)
 	$(CC) -o bin/$(MAIN) $(OBJS)
 
-%.o: %.c$
+%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 

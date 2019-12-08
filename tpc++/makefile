@@ -9,7 +9,7 @@ $(MAIN): $(OBJS)
 	$(CC) -o bin/$(MAIN) $(OBJS)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -DMAP -c $< -o $@
 
 
 .PHONY: clean

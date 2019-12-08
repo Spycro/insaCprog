@@ -28,12 +28,12 @@ using namespace std;
 //{
 //} //----- Fin de Méthode
 void TrajetCompose::Afficher() const{
-    cout << "------TrajetCompose------" << endl;
+    cout << "-----Trajet Compose-----" << endl;
     for(uint i = 0; i<nbTrajet; i++)
     {
         chemin[i]->Afficher();
     }
-    cout << "-------------------------" << endl;
+    cout << "--Fin Du Trajet Compose--" << endl;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

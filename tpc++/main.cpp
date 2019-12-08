@@ -17,13 +17,13 @@ int main(){
     //INITIALISATION du Catalogue
     Catalogue * monCatalogue = new Catalogue();
 
-
+    //Debut de la boucle de menu
     while(val!=0){
         cout<<"Menu : "<<endl;
         cout<<"1 : Ajouter"<<endl;
         cout<<"2 : Afficher"<<endl;
-        cout<<"3 : Rechercher pas mieux"<<endl;
-        cout<<"4 : Rechercher mieux"<<endl;
+        cout<<"3 : Recherche Simple"<<endl;
+        cout<<"4 : Rechercher Avancee"<<endl;
         cout<<"0 : Quitter ce programme"<<endl;
         cin>>val;
         switch(val){
@@ -185,8 +185,10 @@ void ajouter(Catalogue * c){
     }
 }
 
-//fonction ordinaire permettant la recherche simple d'un
-//trajet dans le Catalogue.
+/*
+  fonction ordinaire permettant la recherche simple d'un
+  trajet dans le Catalogue.
+*/
 void rechercher(Catalogue * c){
   char * ville1 = new char[100];
   char * ville2 = new char[100];

@@ -52,7 +52,7 @@ void Catalogue::Afficher() const{
 }
 // Algorithme :
 // on parcourt tout le tableau de TrajetSimple du catalogue
-// Pour chaque Trajet on appelle la méthode Afficher
+// Pour chaque TrajetSimple on appelle la méthode Afficher
 //
 
 

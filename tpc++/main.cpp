@@ -168,6 +168,9 @@ void ajouter(Catalogue * c){
         ville1 = new char[100];
 
         }
+        //On supprime le dernier ville1 allouee car il est inutile
+        delete [] ville1;
+        //Verification de la bonne integrite du trajet 
         if(valide){
           c->Ajouter(new TrajetCompose(villeDep,villeArrivee,nbTrajet,trajet));
         }else{

@@ -7,7 +7,7 @@ SRCS=TrajetSimple.cpp main.cpp TrajetCompose.cpp Catalogue.cpp
 OBJS=$(SRCS:.cpp=.o)
 MAIN=main
 
-debug: CFLAGS += DEBUGFLAGS
+debug: CFLAGS += $(DEBUGFLAGS)
 debug: $(MAIN)
 
 

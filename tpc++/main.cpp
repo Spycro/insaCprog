@@ -167,7 +167,7 @@ void ajouter(Catalogue * c){
         }else{
           //suppression des trajets et des villes crees
           cout<<"Trajet non conforme"<<endl;
-          for (size_t i = 0; i < nbTrajet; i++) {
+          for (int i = 0; i < nbTrajet; i++) {
             delete trajet[i];
           }
           delete [] trajet;

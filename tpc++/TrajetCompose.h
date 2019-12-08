@@ -63,7 +63,7 @@ protected:
 
 //----------------------------------------------------- Attributs protégés
 
-int nbTrajet;
+uint nbTrajet;
 TrajetSimple **chemin ;
 };
 

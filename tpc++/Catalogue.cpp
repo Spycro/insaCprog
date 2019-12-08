@@ -46,7 +46,7 @@ void Catalogue::Ajouter(TrajetSimple* trajet){
 
 
 void Catalogue::Afficher() const{
-    for(int i=0; i<tailleActuelle; i++){
+    for(uint i=0; i<tailleActuelle; i++){
       catalogue[i]->Afficher();
     }
 }
@@ -58,7 +58,7 @@ void Catalogue::Afficher() const{
 
 
 void Catalogue::Rechercher(const char * dep, const char * arr) const{
-  for(int i=0;i<tailleActuelle;i++){
+  for(uint i=0;i<tailleActuelle;i++){
     if(strcmp(dep,this->catalogue[i]->getDepart())==0 && strcmp(arr,this->catalogue[i]->getArrivee())==0){
       catalogue[i]->Afficher();
     }
@@ -95,7 +95,7 @@ Catalogue::~Catalogue ( )
     cout << "Appel au destructeur de <Catalogue>" << endl;
 #endif
 
-  for(int i = 0; i<tailleActuelle; i++){
+  for(uint i = 0; i<tailleActuelle; i++){
     delete catalogue[i];
   }
   delete [] catalogue;

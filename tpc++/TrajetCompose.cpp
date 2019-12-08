@@ -29,7 +29,7 @@ using namespace std;
 //} //----- Fin de Méthode
 void TrajetCompose::Afficher() const{
     cout << "-----------------" << endl;
-    for(int i = 0; i<nbTrajet; i++)
+    for(uint i = 0; i<nbTrajet; i++)
     {
         chemin[i]->Afficher();
     }
@@ -86,7 +86,7 @@ TrajetCompose::~TrajetCompose ( )
 #ifdef MAP
     cout << "Appel au destructeur de <TrajetCompose>" << endl;
 #endif
-    for (size_t i = 0; i < nbTrajet; i++) {
+    for (uint i = 0; i < nbTrajet; i++) {
       delete chemin[i];
     }
 

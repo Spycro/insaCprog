@@ -28,7 +28,7 @@ using namespace std;
 
 void Catalogue::Ajouter(TrajetSimple* trajet){
     if(tailleActuel==tailleMax){
-      tailleMax+=5;
+      tailleMax*=2;
       TrajetSimple ** temp = catalogue;
       catalogue = new TrajetSimple*[tailleMax];
       for (size_t i = 0; i < tailleActuel; i++) {

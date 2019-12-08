@@ -180,6 +180,8 @@ void ajouter(Catalogue * c){
             delete trajet[i];
           }
           delete [] trajet;
+          delete [] villeDep;
+          delete [] villeArrivee;
         }
         break;
 

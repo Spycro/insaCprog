@@ -1,0 +1,7 @@
+Pour compiler l'executable :
+make clean
+make
+
+Pour compiler avec les options de debug (-g -DMAP):
+make clean
+make debug

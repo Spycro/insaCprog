@@ -174,7 +174,7 @@ void ajouter(Catalogue * c){
         if(valide){
           c->Ajouter(new TrajetCompose(villeDep,villeArrivee,nbTrajet,trajet));
         }else{
-          //suppression des trajets cree
+          //suppression des trajets et des villes crees
           cout<<"Trajet non conforme"<<endl;
           for (size_t i = 0; i < nbTrajet; i++) {
             delete trajet[i];

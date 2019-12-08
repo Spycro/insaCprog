@@ -5,7 +5,6 @@ using namespace std;
 #include "TrajetSimple.h"
 #include "TrajetCompose.h"
 #include "Catalogue.h"
-#define MAP
 
 void ajouter(Catalogue * c);
 void rechercher(Catalogue * c);

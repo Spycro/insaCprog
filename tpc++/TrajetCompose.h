@@ -9,7 +9,6 @@
 //---------- Interface de la classe <TrajetCompose> (fichier TrajetCompose.h) ----------------
 #if ! defined ( TrajetCompose_H )
 #define TrajetCompose_H
-#define MAP
 
 //--------------------------------------------------- Interfaces utilisées
 #include "TrajetSimple.h"

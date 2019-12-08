@@ -13,7 +13,6 @@
 //-------------------------------------------------------- Include système
 using namespace std;
 #include <iostream>
-#define MAP
 
 //------------------------------------------------------ Include personnel
 #include "TrajetCompose.h"
@@ -41,7 +40,7 @@ void TrajetCompose::Afficher() const{
 TrajetCompose & TrajetCompose::operator = ( const TrajetCompose & unTrajetCompose )
 // Algorithme :
 //
-{
+{bin/
 } //----- Fin de operator =
 
 
@@ -90,7 +89,7 @@ TrajetCompose::~TrajetCompose ( )
     for (size_t i = 0; i < nbTrajet; i++) {
       delete chemin[i];
     }
-    
+
     delete [] chemin;
 } //----- Fin de ~TrajetCompose
 

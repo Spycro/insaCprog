@@ -18,7 +18,6 @@ using namespace std;
 //------------------------------------------------------ Include personnel
 #include "Catalogue.h"
 #include "TrajetSimple.h"
-#define MAP
 
 //------------------------------------------------------------- Constantes
 

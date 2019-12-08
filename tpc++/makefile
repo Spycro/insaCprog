@@ -1,15 +1,15 @@
 CC=g++
-CFLAGS= -ansi -pedantic –Wall –std=c++11 -D MAP -g
+CFLAGS= -ansi -pedantic –Wall –std=c++11 -DMAP -g
 
 SRCS=TrajetSimple.cpp main.cpp TrajetCompose.cpp Catalogue.cpp
 OBJS=$(SRCS:.cpp=.o)
 MAIN=main
 
 $(MAIN): $(OBJS)
-	$(CC) -o bin/$(MAIN) $(OBJS) -DMAP
+	$(CC) -o bin/$(MAIN) $(OBJS)
 
 %.o: %.c$
-	$(CC) $(CFLAGS) -c $< -o $@ -DMAP
+	$(CC) $(CFLAGS) -c $< -o $@
 
 
 .PHONY: clean

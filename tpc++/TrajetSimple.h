@@ -9,7 +9,6 @@
 //---------- Interface de la classe <TrajetSimple> (fichier TrajetSimple.h) ----------------
 #if ! defined ( TrajetSimple_H )
 #define TrajetSimple_H
-#define MAP
 
 //--------------------------------------------------- Interfaces utilisées
 

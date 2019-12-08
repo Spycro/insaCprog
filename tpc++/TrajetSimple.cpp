@@ -14,7 +14,6 @@
 using namespace std;
 #include <iostream>
 #include <cstring>
-#define MAP
 
 //------------------------------------------------------ Include personnel
 #include "TrajetSimple.h"

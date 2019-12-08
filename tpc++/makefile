@@ -1,5 +1,5 @@
-CC=g++
-CFLAGS= -ansi -pedantic –Wall –std=c++11 -DMAP -g
+CC=g++ -DMAP
+CFLAGS= -ansi -pedantic –Wall –std=c++11 -g
 
 SRCS=TrajetSimple.cpp main.cpp TrajetCompose.cpp Catalogue.cpp
 OBJS=$(SRCS:.cpp=.o)

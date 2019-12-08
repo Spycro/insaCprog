@@ -47,6 +47,7 @@ void TrajetSimple::Afficher() const
             cout << "Moyen de Transport : BATEAU" << endl;
             break;
     }
+    cout << endl;
 }
 const char* TrajetSimple::getDepart() const{
   return this->depart;

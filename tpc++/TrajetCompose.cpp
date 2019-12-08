@@ -33,7 +33,7 @@ void TrajetCompose::Afficher() const{
     {
         chemin[i]->Afficher();
     }
-    cout << "--------------------------------" << endl;
+    cout << "--------------------------------" << endl << endl;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

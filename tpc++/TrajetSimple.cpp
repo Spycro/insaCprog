@@ -14,7 +14,6 @@
 using namespace std;
 #include <iostream>
 #include <cstring>
-#define MAP
 
 //------------------------------------------------------ Include personnel
 #include "TrajetSimple.h"
@@ -29,7 +28,10 @@ using namespace std;
 //
 //{
 //} //----- Fin de Méthode
-void TrajetSimple::Afficher() const {
+void TrajetSimple::Afficher() const
+//On affiche les caracterisques du trajet
+{
+    cout<<"---Trajet Simple---"<<endl;
     cout<<"Depart : "<<depart<<" --Arrivee : "<<arrivee<<endl;
     switch(this->moyenDeTransport){
         case AUTO:
@@ -45,6 +47,7 @@ void TrajetSimple::Afficher() const {
             cout << "Moyen de Transport : BATEAU" << endl;
             break;
     }
+    cout<<"-------------------"<<endl;
 }
 const char* TrajetSimple::getDepart() const{
   return this->depart;

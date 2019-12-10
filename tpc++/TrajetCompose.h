@@ -9,7 +9,6 @@
 //---------- Interface de la classe <TrajetCompose> (fichier TrajetCompose.h) ----------------
 #if ! defined ( TrajetCompose_H )
 #define TrajetCompose_H
-#define MAP
 
 //--------------------------------------------------- Interfaces utilisées
 #include "TrajetSimple.h"
@@ -39,11 +38,6 @@ public:
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-    TrajetCompose & operator = ( const TrajetCompose & unTrajetCompose );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
 
 
 //-------------------------------------------- Constructeurs - destructeur
@@ -64,7 +58,7 @@ protected:
 
 //----------------------------------------------------- Attributs protégés
 
-int nbTrajet;
+uint nbTrajet;
 TrajetSimple **chemin ;
 };
 

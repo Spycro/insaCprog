@@ -35,7 +35,7 @@ public:
     //
     void Ajouter(TrajetSimple* trajet);
     void Afficher() const;
-    void Rechercher(char * dep, char * arr) const;
+    void Rechercher(const char * dep, const char * arr) const;
 
 //------------------------------------------------- Surcharge d'opérateurs
 
@@ -58,7 +58,7 @@ protected:
 //----------------------------------------------------- Méthodes protégées
 
 //----------------------------------------------------- Attributs protégés
-    uint tailleActuel;
+    uint tailleActuelle;
     uint tailleMax;
     TrajetSimple ** catalogue;
 };

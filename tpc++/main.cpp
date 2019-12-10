@@ -5,34 +5,25 @@ using namespace std;
 #include "TrajetSimple.h"
 #include "TrajetCompose.h"
 #include "Catalogue.h"
-#define MAP
 
 void ajouter(Catalogue * c);
 void rechercher(Catalogue * c);
 
 int main(){
-    /*ajetSimple* a1 = new TrajetSimple("Paris", "Lyon", AVION);
-    a1->Afficher();
-    TrajetSimple* a2 = new TrajetSimple("Lyon", "Tours", TRAIN);
-    a2->Afficher();
-    TrajetSimple **  tab = new TrajetSimple*[2];
-    tab[0] = new TrajetSimple("Paris", "Lyon", AVION);
-    tab[1] = new TrajetSimple("Lyon", "Tours", TRAIN);
-    TrajetSimple* b=new TrajetCompose("Paris","Toulouse",2,tab);
-    b->Afficher();*/
 
+    //Variable de choix du menu
     int val=10;
 
-    //INITIALISATION
+    //INITIALISATION du Catalogue
     Catalogue * monCatalogue = new Catalogue();
 
-
+    //Debut de la boucle de menu
     while(val!=0){
         cout<<"Menu : "<<endl;
         cout<<"1 : Ajouter"<<endl;
         cout<<"2 : Afficher"<<endl;
-        cout<<"3 : Rechercher pas mieux"<<endl;
-        cout<<"4 : Rechercher mieux"<<endl;
+        cout<<"3 : Recherche Simple"<<endl;
+        cout<<"4 : Rechercher Avancee"<<endl;
         cout<<"0 : Quitter ce programme"<<endl;
         cin>>val;
         switch(val){
@@ -60,10 +51,8 @@ int main(){
 
 void ajouter(Catalogue * c){
     int choix = 0;
-    char * ville1;
-    char * ville2;
-    ville1 = new char[100];
-    ville2 = new char[100];
+    char * ville1 = new char[100];
+    char * ville2 = new char[100];
     int moyDeTransport;
     cout << "Voulez vous : " << endl << "1 - Trajet Simple" << endl << "2 - Trajet Compose" << endl;
     cin >> choix;
@@ -107,8 +96,10 @@ void ajouter(Catalogue * c){
       //Ajout de Trajet Compose
       case 2:
       {
-        char * villeDep;
-        villeDep = new char[100];
+        //Variable permettant de garder en mémoire la première ville choisie
+        char * villeDep = new char[100];
+        //Variable permettant de garder en mémoire la derniere ville choisie
+        char * villeArrivee = new char[100];
         int nbTrajet;
         bool valide=true;
         cout << "Combien de d'escale (1 au minimum)" << endl;
@@ -138,7 +129,7 @@ void ajouter(Catalogue * c){
 
           cin >> ville2;
           cout << endl;
-
+          if(i == nbTrajet - 1) strcpy(villeArrivee, ville2);
 
 
           cout<<"1 : Auto"<<endl;
@@ -168,11 +159,20 @@ void ajouter(Catalogue * c){
         ville1 = new char[100];
 
         }
+        //On supprime le dernier ville1 allouee car il est inutile
+        delete [] ville1;
+        //Verification de la bonne integrite du trajet
         if(valide){
-          c->Ajouter(new TrajetCompose(villeDep,ville2,nbTrajet,trajet));
+          c->Ajouter(new TrajetCompose(villeDep,villeArrivee,nbTrajet,trajet));
         }else{
+          //suppression des trajets et des villes crees
           cout<<"Trajet non conforme"<<endl;
+          for (int i = 0; i < nbTrajet; i++) {
+            delete trajet[i];
+          }
           delete [] trajet;
+          delete [] villeDep;
+          delete [] villeArrivee;
         }
         break;
 
@@ -185,6 +185,10 @@ void ajouter(Catalogue * c){
     }
 }
 
+/*
+  fonction ordinaire permettant la recherche simple d'un
+  trajet dans le Catalogue.
+*/
 void rechercher(Catalogue * c){
   char * ville1 = new char[100];
   char * ville2 = new char[100];

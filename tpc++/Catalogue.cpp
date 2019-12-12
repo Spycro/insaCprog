@@ -166,9 +166,6 @@ void Catalogue::recursion (Liste* liste,const char * dep, const char * arr) cons
       previous=previous->precedent;
       }
 
-      
-      cout<<"bonjour"<<endl;
-
       liste->trajet=catalogue[i];
       Liste* newNode=new Liste;
       newNode->precedent=liste;
@@ -181,10 +178,12 @@ void Catalogue::recursion (Liste* liste,const char * dep, const char * arr) cons
         while(current->precedent!=nullptr){
           current=current->precedent;
         }
+        cout << "++++Trajet Trouve++++" << endl;
         while(current!=nullptr){
           current->trajet->Afficher();
           current=current->suivant;
         }
+        cout << "+++++++++++++++++++++" << endl;
       }else{
         recursion(liste->suivant,catalogue[i]->getArrivee(),arr);
       }

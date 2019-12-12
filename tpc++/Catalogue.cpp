@@ -167,7 +167,7 @@ void Catalogue::recursion (Liste* liste,const char * dep, const char * arr) cons
       Liste* newNode=new Liste;
       newNode->precedent=liste;
       newNode->suivant=nullptr;
-      newNode->Trajet=nullptr;
+      newNode->trajet=nullptr;
       liste->suivant=newNode;
 
       //On verifie si on est arrive au bout du trajet

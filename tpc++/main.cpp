@@ -51,7 +51,14 @@ int main(){
     return 0;
 }
 
-void ajouter(Catalogue * c){
+void ajouter(Catalogue * c)
+// fonction ordinaire permettant l'ajout de donnee valide dans le catalogue
+// On cherche d'aord a savoir si l'on veut n trajet simple ou composee
+// Ensuite on demande les caracterisques necessaires a chaque objet
+// Pour le trajet compose, on verifie au fur et a mesure que le trajet est
+// conforme (arrivee et depart concordant)
+
+{
     int choix = 0;
     char * ville1 = new char[100];
     char * ville2 = new char[100];
@@ -105,7 +112,7 @@ void ajouter(Catalogue * c){
         //Variable permettant de garder en mémoire la derniere ville choisie
         char * villeArrivee = new char[100];
         int nbTrajet;
-        bool valide=true;
+        bool trajetValide=true;
         cout << "Combien de d'escale (1 au minimum)" << endl;
         cin >> nbTrajet;
         ++nbTrajet;
@@ -117,24 +124,25 @@ void ajouter(Catalogue * c){
           cout << "Ville de depart : ";
           cin >> ville1;
           cout << endl << "Ville d'arrivee : ";
-          //Premier trajet :
 
+          //Premier trajet
           if(i==0){
             strcpy(villeDep, ville1);
           }
 
           //Comparaison avec nouveau depart et ancienne arrivee
           if(i>0 && strcmp(ville1,ville2)!=0){
-            valide=false;
+            trajetValide=false;
           }
+          // On realloue pour une nouvelle ville d'arrivee
           if(i!=0){
             ville2 = new char[100];
           }
 
           cin >> ville2;
           cout << endl;
-          if(i == nbTrajet - 1) strcpy(villeArrivee, ville2);
 
+          if(i == nbTrajet - 1) strcpy(villeArrivee, ville2);
 
           cout<<"1 : Auto"<<endl;
           cout<<"2 : Avion"<<endl;
@@ -166,7 +174,7 @@ void ajouter(Catalogue * c){
         //On supprime le dernier ville1 allouee car il est inutile
         delete [] ville1;
         //Verification de la bonne integrite du trajet
-        if(valide){
+        if(trajetValide){
           c->Ajouter(new TrajetCompose(villeDep,villeArrivee,nbTrajet,trajet));
         }else{
           //suppression des trajets et des villes crees
@@ -193,7 +201,9 @@ void ajouter(Catalogue * c){
   fonction ordinaire permettant la recherche simple d'un
   trajet dans le Catalogue.
 */
-void rechercher(Catalogue * c){
+void rechercher(Catalogue * c)
+
+{
   char * ville1 = new char[100];
   char * ville2 = new char[100];
   cout << "ville 1 : ";
@@ -207,7 +217,11 @@ void rechercher(Catalogue * c){
   delete [] ville2;
 }
 
-void rechercheAvancee(Catalogue * c){
+void rechercheAvancee(Catalogue * c)
+/*
+  Identique a rechercher, sauf qu'elle appelle RechercheAvancee
+*/
+{
   char * ville1 = new char[100];
   char * ville2 = new char[100];
   cout << "ville 1 : ";

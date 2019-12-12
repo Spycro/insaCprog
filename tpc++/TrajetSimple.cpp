@@ -57,7 +57,12 @@ const char* TrajetSimple::getArrivee() const{
 }
 
 //------------------------------------------------- Surcharge d'opérateurs
-
+bool TrajetSimple::operator == ( const TrajetSimple & unTrajetSimple )
+{
+  return (strcmp(this->depart, unTrajetSimple->depart)
+    && strcmp(this->arrivee, unTrajetSimple->arrivee)
+    && this->moyenDeTransport == unTrajetSimple->moyenDeTransport);
+}
 
 //-------------------------------------------- Constructeurs - destructeur
 

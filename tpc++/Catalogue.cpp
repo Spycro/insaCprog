@@ -143,9 +143,6 @@ Catalogue::~Catalogue ( )
 //----------------------------------------------------- Méthodes protégées
 void Catalogue::recursion (Liste* liste,const char * dep, const char * arr) const{
   for(uint i=0;i<tailleActuelle;i++){
-
-    bool test=true;
-    Liste* previous=liste->precedent;
     if(strcmp(catalogue[i]->getDepart(),dep)==0){
 
       bool test=true;

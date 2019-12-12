@@ -8,7 +8,7 @@ using namespace std;
 
 void ajouter(Catalogue * c);
 void rechercher(Catalogue * c);
-void rechercherA(Catalogue * c);
+void rechercheAvancee(Catalogue * c);
 
 int main(){
 
@@ -38,7 +38,7 @@ int main(){
                 rechercher(monCatalogue);
                 break;
             case 4:
-                rechercherA(monCatalogue);
+                rechercheAvancee(monCatalogue);
                   break;
             case 0:
                 break;
@@ -207,7 +207,7 @@ void rechercher(Catalogue * c){
   delete [] ville2;
 }
 
-void rechercherA(Catalogue * c){
+void rechercheAvancee(Catalogue * c){
   char * ville1 = new char[100];
   char * ville2 = new char[100];
   cout << "ville 1 : ";

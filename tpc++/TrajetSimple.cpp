@@ -57,19 +57,14 @@ const char* TrajetSimple::getArrivee() const{
 }
 
 //------------------------------------------------- Surcharge d'opérateurs
-/*TrajetSimple & TrajetSimple::operator = ( const TrajetSimple & unTrajetSimple )
-// Algorithme :
-//
-{
-} //----- Fin de operator =
-*/
+
 
 //-------------------------------------------- Constructeurs - destructeur
 
 
 TrajetSimple::TrajetSimple ( )
 // Algorithme :
-//
+// Constructeur par defaut
 {
 #ifdef MAP
     cout << "Appel au constructeur de <TrajetSimple>" << endl;
@@ -77,7 +72,9 @@ TrajetSimple::TrajetSimple ( )
 } //----- Fin de TrajetSimple
 
 
-TrajetSimple::TrajetSimple(const char* pDep,const  char* pArr, MT moyTransport){
+TrajetSimple::TrajetSimple(const char* pDep,const  char* pArr, MT moyTransport)
+//Constructeur utilisee
+{
   #ifdef MAP
       cout << "Appel au constructeur de <TrajetSimple>" << endl;
   #endif
@@ -88,7 +85,7 @@ TrajetSimple::TrajetSimple(const char* pDep,const  char* pArr, MT moyTransport){
 
 TrajetSimple::~TrajetSimple ( )
 // Algorithme :
-//
+// On supprime les deux char * alloue dynamiquement
 {
 #ifdef MAP
     cout << "Appel au destructeur de <TrajetSimple>" << endl;

@@ -27,7 +27,9 @@ using namespace std;
 //
 //{
 //} //----- Fin de Méthode
-void TrajetCompose::Afficher() const{
+void TrajetCompose::Afficher() const
+// Pour chaque trajetSimple dans l'objet, on l'affiche
+{
     cout << "-----Trajet Compose-----" << endl;
     for(uint i = 0; i<nbTrajet; i++)
     {
@@ -76,7 +78,8 @@ TrajetCompose::TrajetCompose (const char * pDep, const char * pArr, int taille,T
 
 TrajetCompose::~TrajetCompose ( )
 // Algorithme :
-//
+// Supprime individuellement chaque trajet qui compose Notre TrajetCompose
+// On laisse ensuite le destructeur de la classe mere detruire les char *
 {
 #ifdef MAP
     cout << "Appel au destructeur de <TrajetCompose>" << endl;

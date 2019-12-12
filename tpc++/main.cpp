@@ -8,7 +8,7 @@ using namespace std;
 
 void ajouter(Catalogue * c);
 void rechercher(Catalogue * c);
-void rechercher2(Catalogue * c);
+void rechercherA(Catalogue * c);
 
 int main(){
 
@@ -38,7 +38,7 @@ int main(){
                 rechercher(monCatalogue);
                 break;
             case 4:
-                rechercher2(monCatalogue);
+                rechercherA(monCatalogue);
                   break;
             case 0:
                 break;
@@ -58,6 +58,8 @@ void ajouter(Catalogue * c){
     int moyDeTransport;
     cout << "Voulez vous : " << endl << "1 - Trajet Simple" << endl << "2 - Trajet Compose" << endl;
     cin >> choix;
+
+    //switch permettant de savoir si on ajoute un trajet simple ou composee
     switch (choix) {
       //Ajout de trajet Simple
       case 1:
@@ -205,7 +207,7 @@ void rechercher(Catalogue * c){
   delete [] ville2;
 }
 
-void rechercher2(Catalogue * c){
+void rechercherA(Catalogue * c){
   char * ville1 = new char[100];
   char * ville2 = new char[100];
   cout << "ville 1 : ";

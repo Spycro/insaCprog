@@ -151,7 +151,8 @@ void Catalogue::recursion (Liste* liste,const char * dep, const char * arr) cons
       bool test=true;
       Liste* previous=liste;
       while(previous!=nullptr){
-        if(strcmp(catalogue[i]->getDepart(),previous->trajet->getDepart()) == 0
+        if(previous->trajet != nullptr
+          && strcmp(catalogue[i]->getDepart(),previous->trajet->getDepart()) == 0
             && strcmp(catalogue[i]->getArrivee(),previous->trajet->getArrivee()) == 0)
         {
           test=false;

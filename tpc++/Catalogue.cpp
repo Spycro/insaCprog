@@ -160,7 +160,7 @@ void Catalogue::recursion (Liste* liste,const char * dep, const char * arr) cons
         }
       previous=previous->precedent;
       }
-
+      if(!test) break;
       liste->trajet=catalogue[i];
       Liste* newNode=new Liste;
       newNode->precedent=liste;

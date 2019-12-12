@@ -40,7 +40,7 @@ public:
     const char* getDepart() const;
     const char* getArrivee() const;
 //------------------------------------------------- Surcharge d'opérateurs
-    TrajetSimple & operator == ( const TrajetSimple & unTrajetSimple );
+    bool operator == ( const TrajetSimple & unTrajetSimple );
     // Mode d'emploi :
     //
     // Contrat :

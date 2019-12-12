@@ -59,7 +59,7 @@ protected:
 //----------------------------------------------------- Attributs protégés
 
 uint nbTrajet;
-TrajetSimple **chemin ;
+TrajetSimple **chemin;
 };
 
 //-------------------------------- Autres définitions dépendantes de <TrajetCompose>

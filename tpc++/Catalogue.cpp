@@ -70,6 +70,42 @@ void Catalogue::Rechercher(const char * dep, const char * arr) const{
 // arrivee correspondent respectivement au parametre formel dep et arr
 // que l'on recherche
 // Si c'est le cas on affiche le trajet en appelant la méthode Afficher
+
+
+void Catalogue::RechercheAvancee(const char * dep, const char * arr) const
+{
+  /*int adjacence[tailleActuelle][tailleActuelle];
+  //creation de la matrice d'adjacence
+  for (uint i = 0; i < tailleActuelle; i++) {
+    for (uint j = 0; j < tailleActuelle; j++) {
+      if(strcmp(this->catalogue[i]->getArrivee(), this->catalogue[j]->getDepart()) == 0){
+        adjacence[i][j] = 1;
+      }
+      else{
+        adjacence[i][j] = 0;
+      }
+    }
+  }
+  TrajetSimple** tab=new TrajetSimple*[]*/
+  Liste* liste=new Liste;
+  liste->precedent=nullptr;
+  liste->suivant=nullptr;
+/*  for (uint i = 0; i < tailleActuelle; i++) {
+    if(strcmp(this->catalogue[i]->getDepart(), dep)){
+      liste->trajet = this->catalogue[i];
+      this->recursion(liste,catalogue[i]->getArrivee(),arr);
+    }
+
+  }*/
+  this->recursion(liste,dep,arr);
+
+  delete liste;
+
+}
+
+
+
+
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
@@ -105,3 +141,54 @@ Catalogue::~Catalogue ( )
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
+void Catalogue::recursion (Liste* liste,const char * dep, const char * arr) const{
+  for(uint i=0;i<tailleActuelle;i++){
+
+    bool test=true;
+    Liste* previous=liste->precedent;
+
+    /*while(previous!=nullptr){
+      if(catalogue[i]==previous->trajet){
+        test=false;
+      }
+      previous=previous->precedent;
+    */
+
+
+    if(strcmp(catalogue[i]->getDepart(),dep)==0){
+
+      bool test=true;
+      Liste* previous=liste->precedent;
+      while(previous!=nullptr){
+        if(catalogue[i]==previous->trajet){
+          test=false;
+        }
+      previous=previous->precedent;
+      }
+
+      
+      cout<<"bonjour"<<endl;
+
+      liste->trajet=catalogue[i];
+      Liste* newNode=new Liste;
+      newNode->precedent=liste;
+      newNode->suivant=nullptr;
+      liste->suivant=newNode;
+      if(strcmp(liste->trajet->getArrivee(),arr)==0){
+        Liste* current=liste;
+        delete liste->suivant;
+        current->suivant = nullptr;
+        while(current->precedent!=nullptr){
+          current=current->precedent;
+        }
+        while(current!=nullptr){
+          current->trajet->Afficher();
+          current=current->suivant;
+        }
+      }else{
+        recursion(liste->suivant,catalogue[i]->getArrivee(),arr);
+      }
+      delete liste->suivant;
+    }
+  }
+}

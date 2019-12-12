@@ -8,6 +8,7 @@ using namespace std;
 
 void ajouter(Catalogue * c);
 void rechercher(Catalogue * c);
+void rechercher2(Catalogue * c);
 
 int main(){
 
@@ -37,7 +38,8 @@ int main(){
                 rechercher(monCatalogue);
                 break;
             case 4:
-                break;
+                rechercher2(monCatalogue);
+                  break;
             case 0:
                 break;
             default : cout<<"Valeur incorrecte"<<endl;
@@ -198,6 +200,20 @@ void rechercher(Catalogue * c){
   cin >> ville2;
   cout << endl;
   c->Rechercher(ville1, ville2);
+
+  delete [] ville1;
+  delete [] ville2;
+}
+
+void rechercher2(Catalogue * c){
+  char * ville1 = new char[100];
+  char * ville2 = new char[100];
+  cout << "ville 1 : ";
+  cin >> ville1;
+  cout << endl << "Ville 2 : ";
+  cin >> ville2;
+  cout << endl;
+  c->RechercheAvancee(ville1, ville2);
 
   delete [] ville1;
   delete [] ville2;

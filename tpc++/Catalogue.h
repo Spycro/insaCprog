@@ -15,7 +15,11 @@
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
-
+typedef struct Liste {
+  TrajetSimple* trajet;
+  Liste* precedent;
+  Liste* suivant;
+}Liste;
 //------------------------------------------------------------------------
 // Rôle de la classe <Catalogue>
 // Catalogue contenant des TrajetSimple ou des TrajetCompose
@@ -36,6 +40,7 @@ public:
     void Ajouter(TrajetSimple* trajet);
     void Afficher() const;
     void Rechercher(const char * dep, const char * arr) const;
+    void RechercheAvancee(const char * dep, const char * arr) const;
 
 //------------------------------------------------- Surcharge d'opérateurs
 
@@ -56,7 +61,7 @@ public:
 
 protected:
 //----------------------------------------------------- Méthodes protégées
-
+void recursion (Liste* liste,const char * dep, const char * arr) const;
 //----------------------------------------------------- Attributs protégés
     uint tailleActuelle;
     uint tailleMax;

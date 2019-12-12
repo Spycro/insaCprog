@@ -158,7 +158,7 @@ void Catalogue::recursion (Liste* liste,const char * dep, const char * arr) cons
     if(strcmp(catalogue[i]->getDepart(),dep)==0){
 
       bool test=true;
-      Liste* previous=liste->precedent;
+      Liste* previous=liste;
       while(previous!=nullptr){
         if(catalogue[i]==previous->trajet){
           test=false;

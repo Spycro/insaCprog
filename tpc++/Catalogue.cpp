@@ -148,7 +148,7 @@ void Catalogue::recursion (Liste* liste,const char * dep, const char * arr) cons
       bool test=true;
       Liste* previous=liste;
 
-      //bouvle verifiant si le trajet candidat qu'on vient de detecter est
+      //boucle verifiant si le trajet candidat qu'on vient de detecter est
       //deja dans la liste ou non
       while(previous!=nullptr){
         if(previous->trajet != nullptr

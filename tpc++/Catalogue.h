@@ -71,17 +71,19 @@ public:
 protected:
 //----------------------------------------------------- Méthodes protégées
 void recursion (Liste* liste,const char * dep, const char * arr) const;
+// Mode d'emploi : Methode recurive
+// Utilisee lors de la recherche avancee
+// elle prend en parametre une liste doublement chaine vide ou non
+// un parametre dep qui changera a chaque recursion
+// un parametre arr qui nous servira de condition d'arret lors de la recherche
+//
+
+
 //----------------------------------------------------- Attributs protégés
     uint tailleActuelle;
     uint tailleMax;
     TrajetSimple ** catalogue;
 };
-// Mode d'emploi : Methode recurive
-// Utilisee lors de la recherche avancee
-// elle prend en parametre une liste doublement chaine vide ou sinon
-// un parametre dep qui changera a chaque recursion
-// un parametre arr qui nous servira de condition d'arret lors de la recherche
-//
 
 
 //-------------------------------- Autres définitions dépendantes de <Catalogue>

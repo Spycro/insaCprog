@@ -162,7 +162,10 @@ void Catalogue::recursion (Liste* liste,const char * dep, const char * arr) cons
       while(previous!=nullptr){
         if(catalogue[i]==previous->trajet){
           test=false;
+          cout << "test set to false" << endl
         }
+        catalogue[i].Afficher();
+        previous->trajet.Afficher();
       previous=previous->precedent;
       }
 

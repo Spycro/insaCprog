@@ -5,3 +5,6 @@ make
 Pour compiler avec les options de debug (-g -DMAP):
 make clean
 make debug
+
+Pour lancer l'executable :
+bin/main

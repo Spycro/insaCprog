@@ -146,26 +146,17 @@ void Catalogue::recursion (Liste* liste,const char * dep, const char * arr) cons
 
     bool test=true;
     Liste* previous=liste->precedent;
-
-    /*while(previous!=nullptr){
-      if(catalogue[i]==previous->trajet){
-        test=false;
-      }
-      previous=previous->precedent;
-    */
-
-
     if(strcmp(catalogue[i]->getDepart(),dep)==0){
 
       bool test=true;
       Liste* previous=liste;
       while(previous!=nullptr){
-        if(catalogue[i]==previous->trajet){
+        if(strcmp(catalogue[i]->getDepart(),previous->trajet->getDepart()) == 0
+            && strcmp(catalogue[i]->getArrivee(),previous->trajet->getArrivee()) == 0)
+        {
           test=false;
           cout << "test set to false" << endl;
         }
-        catalogue[i]->Afficher();
-        previous->trajet->Afficher();
       previous=previous->precedent;
       }
 

@@ -83,6 +83,7 @@ void Catalogue::RechercheAvancee(const char * dep, const char * arr) const
   Liste* liste=new Liste;
   liste->precedent=nullptr;
   liste->suivant=nullptr;
+  liste->trajet=nullptr;
   this->recursion(liste,dep,arr);
   delete liste;
 
@@ -166,6 +167,7 @@ void Catalogue::recursion (Liste* liste,const char * dep, const char * arr) cons
       Liste* newNode=new Liste;
       newNode->precedent=liste;
       newNode->suivant=nullptr;
+      newNode->Trajet=nullptr;
       liste->suivant=newNode;
 
       //On verifie si on est arrive au bout du trajet

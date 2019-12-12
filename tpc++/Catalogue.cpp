@@ -150,6 +150,9 @@ void Catalogue::recursion (Liste* liste,const char * dep, const char * arr) cons
 
       bool test=true;
       Liste* previous=liste;
+
+      //bouvle verifiant si le trajet candidat qu'on vient de detecter est
+      //deja dans la liste ou non
       while(previous!=nullptr){
         if(previous->trajet != nullptr
           && strcmp(catalogue[i]->getDepart(),previous->trajet->getDepart()) == 0
@@ -160,12 +163,18 @@ void Catalogue::recursion (Liste* liste,const char * dep, const char * arr) cons
         }
       previous=previous->precedent;
       }
+      //On sort completement car on arrive a un deadend
+      //Si test est faux
       if(!test) break;
+
+      //On ajoute le trajet courant a la liste actuelle
       liste->trajet=catalogue[i];
       Liste* newNode=new Liste;
       newNode->precedent=liste;
       newNode->suivant=nullptr;
       liste->suivant=newNode;
+
+      //On verifie si on est arrive au bout du trajet
       if(strcmp(liste->trajet->getArrivee(),arr)==0){
         Liste* current=liste;
         delete liste->suivant;

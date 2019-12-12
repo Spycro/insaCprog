@@ -20,6 +20,11 @@ typedef struct Liste {
   Liste* precedent;
   Liste* suivant;
 }Liste;
+//Struct Liste
+//C'est une liste doublement chainee
+//Elle nous sera utile lors de l'algrotihme de recherche avancee.
+
+
 //------------------------------------------------------------------------
 // Rôle de la classe <Catalogue>
 // Catalogue contenant des TrajetSimple ou des TrajetCompose
@@ -35,10 +40,16 @@ public:
     // type Méthode ( liste des paramètres );
     // Mode d'emploi :
     //
-    // Contrat :
-    //
     void Ajouter(TrajetSimple* trajet);
+    // Mode d'emploi :
+    // Prend un TrajetSimple dynamique en parametre et l'ajoute au catalogue
+    // tout en verifiant si il faut reallouer le tableau dynamique
+
     void Afficher() const;
+    // Mode d'emploi :
+    // Affiche simplement le catalogue
+
+
     void Rechercher(const char * dep, const char * arr) const;
     void RechercheAvancee(const char * dep, const char * arr) const;
 
@@ -48,14 +59,12 @@ public:
     Catalogue ( );
     // Mode d'emploi :
     //   Appel simple
-    // Contrat :
-    //
+
 
     virtual ~Catalogue ( );
     // Mode d'emploi :
-    //  Delete d'une zone memoire allouee
-    // Contrat :
-    //
+    //  suppression d'une zone memoire allouee
+
 
 //------------------------------------------------------------------ PRIVE
 
@@ -67,6 +76,13 @@ void recursion (Liste* liste,const char * dep, const char * arr) const;
     uint tailleMax;
     TrajetSimple ** catalogue;
 };
+// Mode d'emploi : Methode recurive
+// Utilisee lors de la recherche avancee
+// elle prend en parametre une liste doublement chaine vide ou sinon
+// un parametre dep qui changera a chaque recursion
+// un parametre arr qui nous servira de condition d'arret lors de la recherche
+//
+
 
 //-------------------------------- Autres définitions dépendantes de <Catalogue>
 
